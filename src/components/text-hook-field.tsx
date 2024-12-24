@@ -61,16 +61,12 @@ export const TextHookField = <
     [restProps, onChange]
   );
 
-  const handleBlur = useCallback(
-    (e) => {
-      if (value && restProps.type !== "number") {
-        onChange(value?.trim());
-      }
-      onBlur();
-      restProps.onBlur?.(e);
-    },
-    [onBlur, onChange, restProps, value]
-  );
+  const handleBlur = useCallback(() => {
+    if (value && restProps.type !== "number") {
+      onChange(value?.trim());
+    }
+    onBlur();
+  }, [onBlur, onChange, restProps, value]);
 
   const handleWheel = useCallback((e: React.WheelEvent<HTMLDivElement>) => {
     const target = e.target as HTMLInputElement;
