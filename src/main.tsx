@@ -7,6 +7,9 @@ import App from "./App.tsx";
 import "./i18n";
 
 const theme = createTheme({
+  typography: {
+    fontFamily: "OpenSans, sans-serif",
+  },
   palette: {
     mode: "light", // Switch to 'light' for a light theme
     primary: {
