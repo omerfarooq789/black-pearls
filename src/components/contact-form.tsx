@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useAlert } from "../hooks";
 import { AlertTypes } from "../enums";
+import { useTranslation } from "react-i18next";
 
 interface ContactFormInputs {
   firstName: string;
@@ -15,20 +16,41 @@ interface ContactFormInputs {
 }
 
 export const ContactForm: React.FC<{ btnText?: string }> = ({
-  btnText = "Submit",
+  btnText = "common.contactForm.btn",
 }) => {
+  const { t } = useTranslation();
   const alert = useAlert();
   const validation = useMemo(
     () =>
       Yup.object().shape({
-        firstName: Yup.string().required("First Name is Required"),
-        lastName: Yup.string().required("Last Name is Required"),
+        firstName: Yup.string().required(
+          t("common.errors.required", {
+            label: t("common.contactForm.formFields.firstName"),
+          })
+        ),
+        lastName: Yup.string().required(
+          t("common.errors.required", {
+            label: t("common.contactForm.formFields.firstName"),
+          })
+        ),
         email: Yup.string()
-          .required("Email is Required")
-          .email("Invalid Email"),
-        message: Yup.string().required("Message is Required"),
+          .required(
+            t("common.errors.required", {
+              label: t("common.contactForm.formFields.lastName"),
+            })
+          )
+          .email(
+            t("common.errors.required", {
+              label: t("common.contactForm.formFields.email"),
+            })
+          ),
+        message: Yup.string().required(
+          t("common.errors.required", {
+            label: t("common.contactForm.formFields.message"),
+          })
+        ),
       }),
-    []
+    [t]
   );
 
   const { control, handleSubmit } = useForm<ContactFormInputs>({
@@ -45,19 +67,19 @@ export const ContactForm: React.FC<{ btnText?: string }> = ({
   const onError = useCallback(() => {
     alert({
       type: AlertTypes.Error,
-      message: "Please Fillout All The Fields Before Submitting",
+      message: t("common.contactForm.alerts.error"),
     });
-  }, [alert]);
+  }, [alert, t]);
 
   const onSubmit: SubmitHandler<ContactFormInputs> = useCallback(
     (data) => {
       console.log("Form Data:", data);
       alert({
         type: AlertTypes.Success,
-        message: "Form submitted successfully!",
+        message: t("common.contactForm.alerts.success"),
       });
     },
-    [alert]
+    [alert, t]
   );
 
   return (
@@ -70,14 +92,14 @@ export const ContactForm: React.FC<{ btnText?: string }> = ({
               name="firstName"
               control={control}
               required
-              label="First Name"
+              label={t("common.contactForm.formFields.firstName")}
             />
           </Grid>
           <Grid item xs={12}>
             <TextHookField
               name="lastName"
               control={control}
-              label="Last Name"
+              label={t("common.contactForm.formFields.lastName")}
               required
             />
           </Grid>
@@ -88,7 +110,7 @@ export const ContactForm: React.FC<{ btnText?: string }> = ({
               name="email"
               control={control}
               type="email"
-              label="Email"
+              label={t("common.contactForm.formFields.email")}
               required
             />
           </Grid>
@@ -97,7 +119,7 @@ export const ContactForm: React.FC<{ btnText?: string }> = ({
           <Grid item xs={12}>
             <TextHookField
               name="message"
-              label="Message"
+              label={t("common.contactForm.formFields.message")}
               required
               control={control}
               multiline
@@ -108,7 +130,7 @@ export const ContactForm: React.FC<{ btnText?: string }> = ({
           {/* Submit Button */}
           <Grid item xs={12}>
             <Button type="submit" variant="contained" size="large">
-              {btnText}
+              {t(btnText)}
             </Button>
           </Grid>
         </Grid>

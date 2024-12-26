@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const partnersList: {
   imgUrl: string;
@@ -31,6 +32,7 @@ const partnersList: {
 ];
 
 export const ServicesPartners: FC = () => {
+  const { t } = useTranslation();
   return (
     <Box
       sx={{
@@ -39,11 +41,10 @@ export const ServicesPartners: FC = () => {
       }}
     >
       <Typography variant="h3" gutterBottom align="center" fontWeight="bold">
-        Our Partners
+        {t("pages.services.partners.title")}
       </Typography>
       <Typography variant="body1" gutterBottom align="center" pb={3}>
-        Empowering Progress Through Strategic Partnerships with Industry
-        Leaders.
+        {t("pages.services.partners.description")}
       </Typography>
       <Container>
         <Grid container spacing={3} justifyContent="center">

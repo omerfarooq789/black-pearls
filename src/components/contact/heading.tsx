@@ -1,7 +1,9 @@
 import { FC } from "react";
 import { Box, Container, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 export const ContactUsHeading: FC = () => {
+  const { t } = useTranslation();
   return (
     <Box
       sx={{
@@ -11,14 +13,13 @@ export const ContactUsHeading: FC = () => {
     >
       <Container maxWidth="md">
         <Typography variant="h2" gutterBottom sx={{ fontWeight: "bold" }}>
-          Contact Us Today
+          {t("pages.contactUs.heading.title")}
         </Typography>
         <Typography
           variant="body1"
           sx={{ maxWidth: "60%", mx: "auto", lineHeight: 1.6 }}
         >
-          Reach out for top-tier MEP solutions tailored to your business needs
-          and project requirements.
+          {t("pages.contactUs.heading.description")}
         </Typography>
       </Container>
     </Box>

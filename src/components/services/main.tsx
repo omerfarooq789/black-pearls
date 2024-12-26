@@ -1,12 +1,14 @@
 import { FC } from "react";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { servicesSectionData } from "../../assets/data";
+import { useTranslation } from "react-i18next";
 
 export const ServicesMain: FC = () => {
+  const { t } = useTranslation();
   return (
     <Container sx={{ py: 8 }}>
       <Typography variant="h2" gutterBottom align="center" fontWeight="bold">
-        Our Exclusive Services
+        {t("pages.services.title")}
       </Typography>
       <Grid container spacing={4} justifyContent="center">
         {servicesSectionData.map((item, index) => (
@@ -27,15 +29,17 @@ export const ServicesMain: FC = () => {
               }}
             >
               <Typography variant="h6" fontWeight="bold" gutterBottom>
-                {item.title}
+                {t(`common.servicesList.${item.type}.title`)}
               </Typography>
-              <Typography variant="subtitle1">{item.description}</Typography>
+              <Typography variant="subtitle1">
+                {t(`common.servicesList.${item.type}.description`)}
+              </Typography>
               <Button
                 variant="outlined"
                 size="large"
                 sx={{ width: "fit-content", mt: 2, borderRadius: "50px" }}
               >
-                See more
+                {t("pages.services.listBtn")}
               </Button>
             </Box>
           </Grid>

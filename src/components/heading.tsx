@@ -1,7 +1,9 @@
 import { FC } from "react";
 import { Box, Container, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 export const PageHeading: FC = () => {
+  const { t } = useTranslation();
   return (
     <Box
       sx={{
@@ -13,15 +15,14 @@ export const PageHeading: FC = () => {
     >
       <Container maxWidth="md">
         <Typography variant="h2" gutterBottom sx={{ fontWeight: "bold" }}>
-          MEP Solutions Excellence
+          {t("common.pageHeading.title")}
         </Typography>
         {/* Subheading */}
         <Typography
           variant="body1"
           sx={{ maxWidth: "60%", mx: "auto", lineHeight: 1.6 }}
         >
-          Delivering top tier HVAC, fire fighting, electrical, and plumbing
-          services across Saudi Arabia.
+          {t("common.pageHeading.description")}
         </Typography>
       </Container>
     </Box>

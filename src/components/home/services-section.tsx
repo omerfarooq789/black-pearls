@@ -6,8 +6,10 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { servicesSectionData } from "../../assets/data";
+import { useTranslation } from "react-i18next";
 
 export const ServicesSection: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <Box
       sx={{
@@ -22,11 +24,10 @@ export const ServicesSection: React.FC = () => {
       }}
     >
       <Typography variant="h3" gutterBottom align="center" fontWeight="bold">
-        Our Services
+        {t("pages.home.servicesSection.title")}
       </Typography>
       <Typography variant="body1" gutterBottom align="center">
-        Expert Electro Mechanical solutions in Saudi Arabia, ensuring quality
-        and efficiency in every project.
+        {t("pages.home.servicesSection.description")}
       </Typography>
 
       <Swiper
@@ -60,9 +61,11 @@ export const ServicesSection: React.FC = () => {
                 }}
               >
                 <Typography variant="h3" fontWeight="bold" gutterBottom>
-                  {item.title}
+                  {t(`common.servicesList.${item.type}.title`)}
                 </Typography>
-                <Typography variant="h6">{item.description}</Typography>
+                <Typography variant="h6">
+                  {t(`common.servicesList.${item.type}.description`)}
+                </Typography>
               </Box>
             </Paper>
           </SwiperSlide>

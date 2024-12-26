@@ -16,33 +16,30 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useAlert } from "../hooks";
-import { AlertTypes } from "../enums";
+import { AlertTypes, ServicesTypes } from "../enums";
 import { useLocation } from "react-router-dom";
-
-const services: string[] = [
-  "HVAC Solutions",
-  "Electrical Services",
-  "Fire Safety Solutions",
-  "Plumbing Solutions",
-  "Safety and Security",
-  "Maintenance Contracts",
-];
+import { useTranslation } from "react-i18next";
 
 interface UpdatesForm {
   email: string;
 }
 
 export const Footer: React.FC = () => {
+  const { t } = useTranslation("main");
   const alert = useAlert();
   const { pathname } = useLocation();
   const validation = useMemo(
     () =>
       Yup.object().shape({
         email: Yup.string()
-          .required("Email is Required")
-          .email("Invalid Email"),
+          .required(
+            t("common.errors.required", {
+              label: t("common.footer.projects.field.label"),
+            })
+          )
+          .email(t("common.errors.invalidEmail")),
       }),
-    []
+    [t]
   );
   const { handleSubmit, control, reset } = useForm<UpdatesForm>({
     defaultValues: { email: "" },
@@ -90,7 +87,7 @@ export const Footer: React.FC = () => {
               width="80%"
             />
             <Typography variant="body2">
-              Leading MEP contractor in Saudi Arabia since inception.
+              {t("common.footer.companyDescription")}
             </Typography>
             <Box sx={{ mt: 2 }}>
               <IconButton
@@ -126,9 +123,9 @@ export const Footer: React.FC = () => {
               mt={3}
               mb={2}
             >
-              Services
+              {t("common.footer.services.title")}
             </Typography>
-            {services.map((item, index) => (
+            {Object.values(ServicesTypes).map((item, index) => (
               <Box key={index}>
                 <Button
                   variant="text"
@@ -138,7 +135,7 @@ export const Footer: React.FC = () => {
                     },
                   }}
                 >
-                  {item}
+                  {t(`common.servicesList.${item}.title`)}
                 </Button>
               </Box>
             ))}
@@ -153,10 +150,12 @@ export const Footer: React.FC = () => {
               mt={3}
               mb={2}
             >
-              Contact
+              {t("common.footer.contact.title")}
             </Typography>
             <Box>
-              <Typography variant="body1">Phone</Typography>
+              <Typography variant="body1">
+                {t("common.contactTypes.phone")}
+              </Typography>
               <Link
                 href="tel:+966507116423"
                 target="_self"
@@ -167,7 +166,9 @@ export const Footer: React.FC = () => {
               </Link>
             </Box>
             <Box>
-              <Typography variant="body1">Email</Typography>
+              <Typography variant="body1">
+                {t("common.contactTypes.email")}
+              </Typography>
               <Link
                 href="mailto:muhammadmusaffa@theblackpearlsa.com"
                 target="_self"
@@ -188,7 +189,7 @@ export const Footer: React.FC = () => {
               mt={3}
               mb={2}
             >
-              Projects
+              {t("common.footer.projects.title")}
             </Typography>
             <Box>
               <form onSubmit={handleSubmit(onSubmit, onError)} noValidate>
@@ -208,7 +209,7 @@ export const Footer: React.FC = () => {
                           }),
                         }}
                       >
-                        Enter your email address
+                        {t("common.footer.projects.field.label")}
                       </FormLabel>
                       <TextField
                         id={field.name}
@@ -220,7 +221,9 @@ export const Footer: React.FC = () => {
                             borderRadius: 1,
                           },
                         }}
-                        placeholder="Your email for updates"
+                        placeholder={t(
+                          "common.footer.projects.field.placeholder"
+                        )}
                         error={!!(fieldState.invalid && fieldState.error)}
                         helperText={fieldState.error?.message}
                         inputRef={field.ref}
@@ -235,7 +238,7 @@ export const Footer: React.FC = () => {
                     color="secondary"
                     size="large"
                   >
-                    Submit
+                    {t("common.footer.projects.field.btn")}
                   </Button>
                 </Grid>
               </form>
@@ -252,8 +255,7 @@ export const Footer: React.FC = () => {
           }}
         >
           <Typography variant="body2">
-            &copy; {new Date().getFullYear()} The Black Pearl SA. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} {t("common.footer.copyWrite")}
           </Typography>
         </Box>
       </Container>

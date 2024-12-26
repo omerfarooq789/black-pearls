@@ -1,9 +1,196 @@
 {
-  "common": {},
-  "header": {},
-  "footer": {},
-  "home": {},
-  "services": {},
-  "projects": {},
-  "contactUs": {}
+  "common": {
+    "header": {
+      "home": "Home",
+      "services": "Services",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "footer": {
+      "companyDescription": "Leading MEP contractor in Saudi Arabia since inception.",
+      "copyWrite": "The Black Pearl SA. All rights reserved.",
+      "services": {
+        "title": "Services"
+      },
+      "contact": {
+        "title": "Contact"
+      },
+      "projects": {
+        "title": "Projects",
+        "field": {
+          "label": "Enter your email address",
+          "placeholder": "Your email for updates",
+          "btn": "Submit"
+        }
+      }
+    },
+    "servicesList": {
+      "hvac": {
+        "title": "HVAC Solutions",
+        "description": "From design to installation and maintenance, our HVAC solutions provide reliable climate control tailored to each project's requirements."
+      },
+      "electrical": {
+        "title": "Electrical Services",
+        "description": "Our electrical services cover a range of needs, from initial setup to ongoing maintenance, with a focus on safety and efficiency."
+      },
+      "fireSafety": {
+        "title": "Fire Safety Solutions",
+        "description": "We offer advanced fire protection systems, designed to safeguard assets and ensure compliance with safety standards."
+      },
+      "plumbing": {
+        "title": "Plumbing Solutions",
+        "description": "Comprehensive plumbing services for various applications, ensuring water systems are installed and maintained to the highest standards."
+      },
+      "surveillance": {
+        "title": "Surveillance and Security",
+        "description": "Our specialized safety and security solutions include systems for surveillance, access control, and emergency readiness, enhancing protection for people and property."
+      },
+      "maintenance": {
+        "title": "Maintenance Contracts",
+        "description": "We provide complete maintenance services across all MEP disciplines, ensuring smooth operation and longevity of essential systems."
+      }
+    },
+    "contactForm": {
+      "formFields": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email",
+        "message": "Message"
+      },
+      "btn": "Submit",
+      "alerts": {
+        "error": "Please Fillout All The Fields Before Submitting",
+        "success": "Form submitted successfully!"
+      }
+    },
+    "contactTypes": {
+      "phone": "Phone",
+      "email": "Email"
+    },
+    "pageHeading": {
+      "title": "MEP Solutions Excellence",
+      "description": "Delivering top tier HVAC, fire fighting, electrical, and plumbing services across Saudi Arabia."
+    },
+    "errors": {
+      "required": "{{label}} is Required(*)",
+      "invalidEmail": "Invalid Email"
+    }
+  },
+  "pages": {
+    "home": {
+      "imageBanner": {
+        "title": "Leading MEP Contractor in Saudi Arabia",
+        "description": "Delivering Quality HVAC, Fire Fighting, Electrical, and Plumbing Services.",
+        "btn": "Get Started"
+      },
+      "aboutSection": {
+        "list": {
+          "about": {
+            "title": "About The Black Pearl",
+            "description": "As a leading MEP contractor in Saudi Arabia, we specialize in providing top-notch services in HVAC, fire fighting, electrical, and plumbing. With a proven track record of over 500 successful projects, our commitment to quality and innovation sets us apart in the industry. Our experienced team of professionals is dedicated to delivering tailored solutions that meet the unique demands of each project, ensuring safety, efficiency, and sustainability. We pride ourselves on our ability to manage complex installations while adhering to strict timelines and budgets. By leveraging the latest technologies and best practices, we strive to exceed client expectations and contribute to the growth of the infrastructure in the region. At the heart of our operations is a relentless pursuit of excellence, making us the preferred choice for MEP contracting in Saudi Arabia."
+          },
+          "commitment": {
+            "title": "Our Commitment to Quality",
+            "description": "We take pride in our exceptional MEP team, which truly sets us apart in the industry. Our commitment to delivering outstanding results is unwavering, and we prioritize understanding the specific needs of our customers. By fostering strong relationships and maintaining open lines of communication, we ensure that every project aligns with our clients' expectations. Our dedicated professionals work tirelessly to implement innovative solutions that not only meet but exceed the desired outcomes. We believe that by making a positive impact in every endeavor, we can contribute to the success of our clients and the broader community. With a focus on quality and reliability, we are determined to remain a leader in our field, driven by our passion for excellence and customer satisfaction."
+          }
+        }
+      },
+      "servicesSection": {
+        "title": "Our Services",
+        "description": "Expert Electro Mechanical solutions in Saudi Arabia, ensuring quality and efficiency in every project."
+      },
+      "projectsSection": {
+        "title": "Projects section",
+        "description": "Provide a short summary of your recent projects, highlighting the most important things.",
+        "list": {
+          "first": {
+            "title": "Factory, industrial area 4, Jeddah",
+            "description": "We delivered a complete internal cabling solution for facility, ensuring seamless connectivity and operational efficiency."
+          },
+          "second": {
+            "title": "MAERSK, MINA",
+            "description": "We completed a high quality HVAC ducting installation, adhering to SMACNA standards to ensure optimal performance and compliance."
+          },
+          "third": {
+            "title": "MOI Sports Center, Dahban",
+            "description": "Our expertise was showcased in the MEP project focusing on HVAC and fire fighting systems."
+          },
+          "fourth": {
+            "title": "Bounce Inc.",
+            "description": "We provided comprehensive HVAC services, ensuring a comfortable and controlled environment."
+          }
+        }
+      },
+      "reviewsSection": {
+        "title": "What our clients are saying about our company.",
+        "list": {
+          "first": {
+            "review": "Impressed with the efficiency and professionalism. The entire process was smooth and hassle-free.",
+            "reviewer": "Abdullah bin Mohammed Al-Saud"
+          },
+          "second": {
+            "review": "We hired them for electrical and plumbing work during our office renovation. Everything was done perfectly, and the team was very cooperative.",
+            "reviewer": "Reem bint Abdulrahman Al Ghamdi"
+          },
+          "third": {
+            "review": "Highly professional team! They delivered our project on time and with great attention to detail. Would definitely recommend them for any MEP work.",
+            "reviewer": "Hanan bint Khalid Al Otaib"
+          },
+          "fourth": {
+            "review": "Great experience working with this company. Their expertise in ducting and wiring is exceptional.",
+            "reviewer": "Mansour bin Saad Al Zahrani"
+          }
+        }
+      },
+      "contactDetail": {
+        "title": "Get in touch",
+        "description": "Share with visitors how they can contact you and encourage them to ask any questions they may have."
+      }
+    },
+    "services": {
+      "title": "Our Exclusive Services",
+      "listBtn": "See More",
+      "partners": {
+        "title": "Our Partners",
+        "description": "Empowering Progress Through Strategic Partnerships with Industry Leaders."
+      }
+    },
+    "projects": {
+      "title": "Our Projects",
+      "description": "Showcasing over 500 successful MEP projects across Saudi Arabia.",
+      "list": {
+        "hvac": {
+          "title": "HVAC Solutions",
+          "description": "Expert installation and maintenance for optimal performance.",
+          "btn": "Learn"
+        },
+        "fireFighting": {
+          "title": "Fire Fighting",
+          "description": "Comprehensive systems ensuring safety and compliance standards.",
+          "btn": "Explore"
+        }
+      }
+    },
+    "contactUs": {
+      "heading": {
+        "title": "Contact Us Today",
+        "description": "Reach out for top-tier MEP solutions tailored to your business needs and project requirements."
+      },
+      "details": {
+        "title": "Contact Us Today",
+        "description": "Get in touch for top-tier MEP solutions. We are here to assist you with your HVAC, fire fighting, electrical, and plumbing needs.",
+        "types": {
+          "support": "Support",
+          "inquiry": "Inquiry"
+        },
+        "btn": "Submit your inquiry"
+      },
+      "location": {
+        "title": "Our Location",
+        "description": "Visit us to explore top-tier MEP solutions and our extensive portfolio. We offer quality services in HVAC, plumbing, electrical, and fire fighting.",
+        "support": "Support",
+        "office": "Office"
+      }
+    }
+  }
 }

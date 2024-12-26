@@ -1,8 +1,10 @@
 import { FC } from "react";
 import { Map } from "./map";
 import { Container, Grid, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 export const ContactLocation: FC = () => {
+  const { t } = useTranslation();
   return (
     <Container sx={{ py: 8 }}>
       <Grid container spacing={4} alignItems="center">
@@ -16,19 +18,17 @@ export const ContactLocation: FC = () => {
           px={8}
         >
           <Typography variant="h3" gutterBottom fontWeight="bold">
-            Our Location
+            {t("pages.contactUs.location.title")}
           </Typography>
           <Typography variant="body1">
-            Visit us to explore top-tier MEP solutions and our extensive
-            portfolio. We offer quality services in HVAC, plumbing, electrical,
-            and fire fighting.
+            {t("pages.contactUs.location.description")}
           </Typography>
           <Typography variant="body1" fontWeight="bold">
-            Office
+            {t("pages.contactUs.location.office")}
           </Typography>
           <Typography variant="body1">6740, Mishrifah Dist., Jeddah</Typography>
           <Typography variant="body1" fontWeight="bold">
-            Support
+            {t("pages.contactUs.location.support")}
           </Typography>
           <Typography variant="body1">
             Sat - Thurs (8:00 am to 6:00 pm)

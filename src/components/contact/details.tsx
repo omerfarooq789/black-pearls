@@ -1,25 +1,26 @@
 import React from "react";
 import { Container, Grid, Typography, Link } from "@mui/material";
 import { ContactForm } from "../contact-form";
+import { useTranslation } from "react-i18next";
 
 const ContactDetail: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <Grid item xs={12} md={6} container direction="column" rowGap={1} px={8}>
       <Typography variant="h3" gutterBottom fontWeight="bold">
-        Contact Us Today
+        {t("pages.contactUs.details.title")}
       </Typography>
       <Typography variant="body1">
-        Get in touch for top-tier MEP solutions. We are here to assist you with
-        your HVAC, fire fighting, electrical, and plumbing needs.
+        {t("pages.contactUs.details.description")}
       </Typography>
       <Typography variant="body1" fontWeight="bold">
-        Support
+        {t("pages.contactUs.details.types.support")}
       </Typography>
       <Link href="tel:+966507116423" target="_self" sx={{ color: "inherit" }}>
         +966 50 711 6423
       </Link>
       <Typography variant="body1" fontWeight="bold">
-        Inquiry
+        {t("pages.contactUs.details.types.inquiry")}
       </Typography>
       <Link
         href="mailto:muhammadmusaffa@theblackpearlsa.com"
@@ -37,7 +38,7 @@ export const ContactUsDetails: React.FC = () => {
     <Container sx={{ py: 8 }}>
       <Grid container spacing={4}>
         <ContactDetail />
-        <ContactForm btnText="Submit your inquiry" />
+        <ContactForm btnText="pages.contactUs.details.btn" />
       </Grid>
     </Container>
   );

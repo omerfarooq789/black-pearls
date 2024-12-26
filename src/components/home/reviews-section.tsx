@@ -6,8 +6,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+import { useTranslation } from "react-i18next";
 
-const servicesSectionData: {
+const reviewSectionData: {
   reviewer: string;
   review: string;
   imageUrl: string;
@@ -15,34 +16,31 @@ const servicesSectionData: {
   {
     imageUrl:
       "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=800,h=560,fit=crop/YrDlZMrOaPuW2xBy/blackpearls6-A0xwOPBzWrTpG6M9.webp",
-    review:
-      "Impressed with the efficiency and professionalism. The entire process was smooth and hassle-free.",
-    reviewer: "Abdullah bin Mohammed Al-Saud",
+    review: "pages.home.reviewsSection.list.first.review",
+    reviewer: "pages.home.reviewsSection.list.first.reviewer",
   },
   {
     imageUrl:
       "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=800,h=560,fit=crop/YrDlZMrOaPuW2xBy/blackpearls5-YrDlZM7KLNtR8JVq.webp",
-    review:
-      "We hired them for electrical and plumbing work during our office renovation. Everything was done perfectly, and the team was very cooperative.",
-    reviewer: "Reem bint Abdulrahman Al Ghamdi",
+    review: "pages.home.reviewsSection.list.second.review",
+    reviewer: "pages.home.reviewsSection.list.second.reviewer",
   },
   {
     imageUrl:
       "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=800,h=560,fit=crop/YrDlZMrOaPuW2xBy/blackpearls7-mv0DB1N2gvHK9M1J.webp",
-    review:
-      "Highly professional team! They delivered our project on time and with great attention to detail. Would definitely recommend them for any MEP work.",
-    reviewer: "Hanan bint Khalid Al Otaib",
+    review: "pages.home.reviewsSection.list.third.review",
+    reviewer: "pages.home.reviewsSection.list.third.reviewer",
   },
   {
     imageUrl:
       "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=800,h=560,fit=crop/YrDlZMrOaPuW2xBy/blackpearls4-AMqbE9713ytwxJLP.webp",
-    review:
-      "Great experience working with this company. Their expertise in ducting and wiring is exceptional.",
-    reviewer: "Mansour bin Saad Al Zahrani",
+    review: "pages.home.reviewsSection.list.fourth.review",
+    reviewer: "pages.home.reviewsSection.list.fourth.reviewer",
   },
 ];
 
 export const ReviewSection: FC = () => {
+  const { t } = useTranslation();
   return (
     <Box
       className="flex-1"
@@ -65,7 +63,7 @@ export const ReviewSection: FC = () => {
         gutterBottom
         textAlign="center"
       >
-        What our clients are saying about our company.
+        {t("pages.home.reviewsSection.title")}
       </Typography>
       <Container
         sx={{
@@ -86,7 +84,7 @@ export const ReviewSection: FC = () => {
           autoplay={{ delay: 5000 }}
           loop
         >
-          {servicesSectionData.map((item, index) => (
+          {reviewSectionData.map((item, index) => (
             <SwiperSlide key={index}>
               <Paper
                 elevation={0}
@@ -125,11 +123,11 @@ export const ReviewSection: FC = () => {
                   >
                     <FormatQuoteIcon />
                     <Typography variant="h6" gutterBottom fontWeight="bold">
-                      {item.review}
+                      {t(item.review)}
                     </Typography>
                     <FormatQuoteIcon />
                   </Box>
-                  <Typography variant="h6">{`- ${item.reviewer}`}</Typography>
+                  <Typography variant="h6">{`- ${t(item.reviewer)}`}</Typography>
                 </Box>
               </Paper>
             </SwiperSlide>

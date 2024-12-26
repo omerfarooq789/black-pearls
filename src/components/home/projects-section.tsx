@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Container, Grid, Typography, Paper } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const projectsSectionData: {
   title: string;
@@ -9,43 +10,39 @@ const projectsSectionData: {
   {
     imageUrl:
       "https://images.unsplash.com/photo-1563164232-b6ee5dd3e821?auto=format&fit=crop&w=1006&h=720",
-    title: "Factory, industrial area 4, Jeddah",
-    description:
-      "We delivered a complete internal cabling solution for facility, ensuring seamless connectivity and operational efficiency.",
+    title: "pages.home.projectsSection.list.first.title",
+    description: "pages.home.projectsSection.list.first.description",
   },
   {
     imageUrl:
       "https://images.unsplash.com/photo-1584443348278-4789e86c7373?auto=format&fit=crop&w=1006&h=720",
-    title: "MAERSK, MINA",
-    description:
-      "We completed a high quality HVAC ducting installation, adhering to SMACNA standards to ensure optimal performance and compliance.",
+    title: "pages.home.projectsSection.list.second.title",
+    description: "pages.home.projectsSection.list.second.description",
   },
   {
     imageUrl:
       "https://images.unsplash.com/photo-1524685364536-a6f820f6c5ce?auto=format&fit=crop&w=1006&h=720",
-    title: "MOI Sports Center, Dahban",
-    description:
-      "Our expertise was showcased in the MEP project focusing on HVAC and fire fighting systems.",
+    title: "pages.home.projectsSection.list.third.title",
+    description: "pages.home.projectsSection.list.third.description",
   },
 
   {
     imageUrl:
       "https://images.unsplash.com/photo-1516739089214-59baa011fdb9?auto=format&fit=crop&w=1006&h=720",
-    title: "Bounce Inc.",
-    description:
-      "We provided comprehensive HVAC services, ensuring a comfortable and controlled environment",
+    title: "pages.home.projectsSection.list.fourth.title",
+    description: "pages.home.projectsSection.list.fourth.description",
   },
 ];
 
 export const ProjectsSection: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <Container sx={{ py: 8 }}>
       <Typography variant="h3" gutterBottom align="center" fontWeight="bold">
-        Projects section
+        {t("pages.home.projectsSection.title")}
       </Typography>
       <Typography variant="body1" gutterBottom align="center" pb={3}>
-        Provide a short summary of your recent projects, highlighting the most
-        important things.
+        {t("pages.home.projectsSection.description")}
       </Typography>
       <Grid container spacing={6} px={8} justifyContent="center">
         {projectsSectionData.map((item, index) => (
@@ -64,10 +61,10 @@ export const ProjectsSection: React.FC = () => {
               />
               <Box className="flex-1">
                 <Typography variant="h6" gutterBottom fontWeight="bold">
-                  {item.title}
+                  {t(item.title)}
                 </Typography>
                 <Typography color="text.secondary">
-                  {item.description}
+                  {t(item.description)}
                 </Typography>
               </Box>
             </Paper>

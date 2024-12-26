@@ -1,8 +1,10 @@
 import { Box, Typography, Button, Container } from "@mui/material";
 import { FC } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 export const ImageBanner: FC = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   return (
     <Box
@@ -30,11 +32,10 @@ export const ImageBanner: FC = () => {
         }}
       >
         <Typography variant="h2">
-          Leading MEP Contractor in Saudi Arabia
+          {t("pages.home.imageBanner.title")}
         </Typography>
         <Typography variant="body1">
-          Delivering Quality HVAC, Fire Fighting, Electrical, and Plumbing
-          Services.
+          {t("pages.home.imageBanner.description")}
         </Typography>
         <Button
           variant="outlined"
@@ -45,7 +46,7 @@ export const ImageBanner: FC = () => {
             borderRadius: "50px",
           }}
         >
-          Get Started
+          {t("pages.home.imageBanner.btn")}
         </Button>
       </Container>
     </Box>
