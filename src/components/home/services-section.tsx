@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Paper } from "@mui/material";
+import { Box, Typography, Paper, useMediaQuery, Theme } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -10,6 +10,10 @@ import { useTranslation } from "react-i18next";
 
 export const ServicesSection: React.FC = () => {
   const { t } = useTranslation();
+
+  const isSmallScreen = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("sm")
+  );
   return (
     <Box
       sx={{
@@ -42,7 +46,7 @@ export const ServicesSection: React.FC = () => {
         {servicesSectionData.map((item, index) => (
           <SwiperSlide key={index}>
             <Paper
-              elevation={4}
+              elevation={0}
               sx={{ overflow: "hidden", borderRadius: 2, mt: 2 }}
             >
               <Box
@@ -60,10 +64,14 @@ export const ServicesSection: React.FC = () => {
                   borderRadius: 4,
                 }}
               >
-                <Typography variant="h3" fontWeight="bold" gutterBottom>
+                <Typography
+                  variant={isSmallScreen ? "h5" : "h3"}
+                  fontWeight="bold"
+                  gutterBottom
+                >
                   {t(`common.servicesList.${item.type}.title`)}
                 </Typography>
-                <Typography variant="h6">
+                <Typography variant={isSmallScreen ? "body1" : "h6"}>
                   {t(`common.servicesList.${item.type}.description`)}
                 </Typography>
               </Box>

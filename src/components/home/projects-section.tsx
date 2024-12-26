@@ -44,7 +44,7 @@ export const ProjectsSection: React.FC = () => {
       <Typography variant="body1" gutterBottom align="center" pb={3}>
         {t("pages.home.projectsSection.description")}
       </Typography>
-      <Grid container spacing={6} px={8} justifyContent="center">
+      <Grid container spacing={6} px={{ xs: 2, md: 8 }} justifyContent="center">
         {projectsSectionData.map((item, index) => (
           <Grid item xs={12} md={6} key={index}>
             <Paper elevation={0} sx={{ overflow: "hidden" }}>

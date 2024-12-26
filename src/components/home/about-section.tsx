@@ -1,5 +1,13 @@
 import React from "react";
-import { Box, Container, Grid, Typography, Paper } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  Paper,
+  useMediaQuery,
+  Theme,
+} from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 const aboutSectionData: {
@@ -21,6 +29,9 @@ const aboutSectionData: {
 
 export const AboutSection: React.FC = () => {
   const { t } = useTranslation();
+  const isSmallScreen = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("sm")
+  );
   return (
     <Container sx={{ py: 10 }}>
       <Paper elevation={0} sx={{ p: 4 }}>
@@ -34,7 +45,11 @@ export const AboutSection: React.FC = () => {
               alignItems="center"
             >
               <Grid item xs={12} md={6}>
-                <Typography variant="h2" gutterBottom fontWeight="bold">
+                <Typography
+                  variant={isSmallScreen ? "h3" : "h2"}
+                  gutterBottom
+                  fontWeight="bold"
+                >
                   {t(item.title)}
                 </Typography>
                 <Typography variant="body1" color="text.secondary">

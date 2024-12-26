@@ -179,13 +179,16 @@ const USA = (
   </svg>
 );
 
-export const LanguageSwitcher: React.FC = () => {
+export const LanguageSwitcher: React.FC<{
+  setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ setDrawerOpen }) => {
   const { i18n } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef<HTMLDivElement>(null);
 
   const handleMenuItemClick = (type: string) => {
     i18n.changeLanguage(type);
+    setDrawerOpen(false);
     setOpen(false);
   };
 

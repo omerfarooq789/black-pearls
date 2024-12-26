@@ -100,7 +100,7 @@ export const ReviewSection: FC = () => {
                   justifyContent="center"
                   py={8}
                   mb={5}
-                  px={11}
+                  px={{ xs: 2, md: 11 }}
                   rowGap={2}
                   sx={{
                     textAlign: "center",
