@@ -80,7 +80,7 @@ export const Footer: React.FC = () => {
     >
       <Container maxWidth="xl">
         <Grid container spacing={4}>
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} md={6} lg={3}>
             <img
               src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=442,h=152,fit=crop/YrDlZMrOaPuW2xBy/the_black_pearls__1_-removebg-preview-YNqyewgMDBTaXVMx.webp"
               alt="Black Pearl Logo"
@@ -114,8 +114,7 @@ export const Footer: React.FC = () => {
             </Box>
           </Grid>
 
-          {/* Quick Links Section */}
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} md={6} lg={3}>
             <Typography
               variant="h6"
               gutterBottom
@@ -141,8 +140,7 @@ export const Footer: React.FC = () => {
             ))}
           </Grid>
 
-          {/* Contact Section */}
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} md={6} lg={3}>
             <Typography
               variant="h6"
               gutterBottom
@@ -180,8 +178,7 @@ export const Footer: React.FC = () => {
             </Box>
           </Grid>
 
-          {/* Social Media Section */}
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} md={6} lg={3}>
             <Typography
               variant="h6"
               gutterBottom

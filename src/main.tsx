@@ -11,7 +11,7 @@ const theme = createTheme({
     fontFamily: "OpenSans, sans-serif",
   },
   palette: {
-    mode: "light", // Switch to 'light' for a light theme
+    mode: "light",
     primary: {
       main: "#ffffff",
     },

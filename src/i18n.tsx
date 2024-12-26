@@ -15,7 +15,6 @@ i18n
     },
     ns: ["main"],
     fallbackLng: "en",
-    // defaultNS,
     backend: {
       loadPath: "/assets/locales/{{lng}}/{{ns}}.json",
     },

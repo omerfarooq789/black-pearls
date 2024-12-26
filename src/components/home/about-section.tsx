@@ -33,7 +33,6 @@ export const AboutSection: React.FC = () => {
               direction={index / 2 == 0 ? "row" : "row-reverse"}
               alignItems="center"
             >
-              {/* Text Section */}
               <Grid item xs={12} md={6}>
                 <Typography variant="h2" gutterBottom fontWeight="bold">
                   {t(item.title)}
@@ -42,7 +41,6 @@ export const AboutSection: React.FC = () => {
                   {t(item.description)}
                 </Typography>
               </Grid>
-              {/* Image Section */}
               <Grid item xs={12} md={6}>
                 <Box
                   component="img"

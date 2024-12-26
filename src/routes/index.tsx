@@ -22,7 +22,6 @@ export const AppRoutes: FC = () => {
             <Route path="/services" Component={Services} />
             <Route path="/projects" Component={Projects} />
             <Route path="/contact" Component={ContactUs} />
-            {/* Add more routes here */}
           </Routes>
         </main>
         <Footer />

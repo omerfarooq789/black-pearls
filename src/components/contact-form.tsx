@@ -86,7 +86,6 @@ export const ContactForm: React.FC<{ btnText?: string }> = ({
     <Grid item xs={12} md={6}>
       <form onSubmit={handleSubmit(onSubmit, onError)} noValidate>
         <Grid container spacing={3} alignItems="center">
-          {/* Name Field */}
           <Grid item xs={12}>
             <TextHookField
               name="firstName"
@@ -104,7 +103,6 @@ export const ContactForm: React.FC<{ btnText?: string }> = ({
             />
           </Grid>
 
-          {/* Email Field */}
           <Grid item xs={12}>
             <TextHookField
               name="email"
@@ -115,7 +113,6 @@ export const ContactForm: React.FC<{ btnText?: string }> = ({
             />
           </Grid>
 
-          {/* Message Field */}
           <Grid item xs={12}>
             <TextHookField
               name="message"
@@ -127,7 +124,6 @@ export const ContactForm: React.FC<{ btnText?: string }> = ({
             />
           </Grid>
 
-          {/* Submit Button */}
           <Grid item xs={12}>
             <Button type="submit" variant="contained" size="large">
               {t(btnText)}
