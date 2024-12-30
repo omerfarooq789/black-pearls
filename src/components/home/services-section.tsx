@@ -33,52 +33,53 @@ export const ServicesSection: React.FC = () => {
       <Typography variant="body1" gutterBottom align="center">
         {t("pages.home.servicesSection.description")}
       </Typography>
-
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={30}
-        slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 5000 }}
-        loop
-      >
-        {servicesSectionData.map((item, index) => (
-          <SwiperSlide key={index}>
-            <Paper
-              elevation={0}
-              sx={{ overflow: "hidden", borderRadius: 2, mt: 2 }}
-            >
-              <Box
-                className="flex-1"
-                justifyContent="center"
-                py={8}
-                mb={5}
-                sx={{
-                  textAlign: "center",
-                  height: "40vh",
-                  color: (theme) => theme.palette.common.white,
-                  backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),url(${item.imageUrl})`,
-                  backgroundPositionY: "center",
-                  backgroundSize: "cover",
-                  borderRadius: 4,
-                }}
+      <div dir="ltr">
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={30}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 5000 }}
+          loop
+        >
+          {servicesSectionData.map((item, index) => (
+            <SwiperSlide key={index}>
+              <Paper
+                elevation={0}
+                sx={{ overflow: "hidden", borderRadius: 2, mt: 2 }}
               >
-                <Typography
-                  variant={isSmallScreen ? "h5" : "h3"}
-                  fontWeight="bold"
-                  gutterBottom
+                <Box
+                  className="flex-1"
+                  justifyContent="center"
+                  py={8}
+                  mb={5}
+                  sx={{
+                    textAlign: "center",
+                    height: "40vh",
+                    color: (theme) => theme.palette.common.white,
+                    backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),url(${item.imageUrl})`,
+                    backgroundPositionY: "center",
+                    backgroundSize: "cover",
+                    borderRadius: 4,
+                  }}
                 >
-                  {t(`common.servicesList.${item.type}.title`)}
-                </Typography>
-                <Typography variant={isSmallScreen ? "body1" : "h6"}>
-                  {t(`common.servicesList.${item.type}.description`)}
-                </Typography>
-              </Box>
-            </Paper>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+                  <Typography
+                    variant={isSmallScreen ? "h5" : "h3"}
+                    fontWeight="bold"
+                    gutterBottom
+                  >
+                    {t(`common.servicesList.${item.type}.title`)}
+                  </Typography>
+                  <Typography variant={isSmallScreen ? "body1" : "h6"}>
+                    {t(`common.servicesList.${item.type}.description`)}
+                  </Typography>
+                </Box>
+              </Paper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </Box>
   );
 };

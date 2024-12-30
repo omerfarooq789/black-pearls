@@ -75,64 +75,66 @@ export const ReviewSection: FC = () => {
           },
         }}
       >
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={30}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 5000 }}
-          loop
-        >
-          {reviewSectionData.map((item, index) => (
-            <SwiperSlide key={index}>
-              <Paper
-                elevation={0}
-                sx={{
-                  overflow: "hidden",
-                  borderRadius: 2,
-                  mt: 2,
-                  background: "transparent",
-                }}
-              >
-                <Box
-                  className="flex-1"
-                  justifyContent="center"
-                  py={8}
-                  mb={5}
-                  px={{ xs: 2, md: 11 }}
-                  rowGap={2}
+        <div dir="ltr">
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 5000 }}
+            loop
+          >
+            {reviewSectionData.map((item, index) => (
+              <SwiperSlide key={index}>
+                <Paper
+                  elevation={0}
                   sx={{
-                    textAlign: "center",
-                    alignItems: "center",
-                    color: (theme) => theme.palette.common.white,
+                    overflow: "hidden",
+                    borderRadius: 2,
+                    mt: 2,
+                    background: "transparent",
                   }}
                 >
-                  <Avatar
-                    sx={{ width: "150px", height: "150px" }}
-                    alt="Remy Sharp"
-                    src={item.imageUrl}
-                  />
                   <Box
+                    className="flex-1"
+                    justifyContent="center"
+                    py={8}
+                    mb={5}
+                    px={{ xs: 2, md: 11 }}
+                    rowGap={2}
                     sx={{
-                      display: "flex",
-                      flexDirection: "row",
-                      columnGap: 1,
-                      alignItems: "start",
+                      textAlign: "center",
+                      alignItems: "center",
+                      color: (theme) => theme.palette.common.white,
                     }}
                   >
-                    <FormatQuoteIcon />
-                    <Typography variant="h6" gutterBottom fontWeight="bold">
-                      {t(item.review)}
-                    </Typography>
-                    <FormatQuoteIcon />
+                    <Avatar
+                      sx={{ width: "150px", height: "150px" }}
+                      alt="Remy Sharp"
+                      src={item.imageUrl}
+                    />
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        columnGap: 1,
+                        alignItems: "start",
+                      }}
+                    >
+                      <FormatQuoteIcon />
+                      <Typography variant="h6" gutterBottom fontWeight="bold">
+                        {t(item.review)}
+                      </Typography>
+                      <FormatQuoteIcon />
+                    </Box>
+                    <Typography variant="h6">{`- ${t(item.reviewer)}`}</Typography>
                   </Box>
-                  <Typography variant="h6">{`- ${t(item.reviewer)}`}</Typography>
-                </Box>
-              </Paper>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+                </Paper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </Container>
     </Box>
   );
