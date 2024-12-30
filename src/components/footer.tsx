@@ -212,12 +212,6 @@ export const Footer: React.FC = () => {
                         id={field.name}
                         fullWidth
                         {...field}
-                        sx={{
-                          "& .MuiInputBase-input": {
-                            background: "white !important",
-                            borderRadius: 1,
-                          },
-                        }}
                         placeholder={t(
                           "common.footer.projects.field.placeholder"
                         )}

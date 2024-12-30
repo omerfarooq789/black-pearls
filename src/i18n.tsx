@@ -7,11 +7,10 @@ i18n
   .use(HttpApi)
   .init({
     returnEmptyString: false,
+    lng: "en",
     supportedLngs: ["en", "ar"],
-    detection: {
-      order: ["querystring", "path", "localStorage", "navigator"],
-      lookupQuerystring: "lang",
-      caches: ["cookie", "localStorage"],
+    interpolation: {
+      escapeValue: false, // React handles escaping by default
     },
     ns: ["main"],
     fallbackLng: "en",

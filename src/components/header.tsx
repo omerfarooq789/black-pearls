@@ -48,7 +48,13 @@ export const Header: FC = () => {
   return (
     <AppBar position="sticky" sx={{ top: 0, width: "100%" }}>
       <Container maxWidth="xl">
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Toolbar
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: i18n.language === "ar" ? "row-reverse" : "row",
+          }}
+        >
           {isSmallScreen && (
             <IconButton
               color="inherit"
@@ -63,7 +69,10 @@ export const Header: FC = () => {
             sx={{
               flexGrow: 1,
               display: "flex",
-              justifyContent: { xs: "center", md: "start" },
+              justifyContent: {
+                xs: "center",
+                md: i18n.language === "ar" ? "end" : "start",
+              },
             }}
           >
             <img
@@ -78,11 +87,17 @@ export const Header: FC = () => {
             />
           </Box>
           {!isSmallScreen && (
-            <Stack direction="row" columnGap={1} alignItems="center">
+            <Stack
+              direction="row"
+              columnGap={1}
+              alignItems="center"
+              flexDirection={i18n.language === "ar" ? "row-reverse" : "row"}
+            >
               {btnsList.map((btn, index) => (
                 <Button
                   key={index}
                   sx={{
+                    borderRadius: 1,
                     ...(btn.route === pathname && {
                       fontWeight: 600,
                       borderBottomLeftRadius: 0,

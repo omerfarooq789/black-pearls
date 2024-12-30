@@ -125,7 +125,11 @@ export const ContactForm: React.FC<{ btnText?: string }> = ({
           </Grid>
 
           <Grid item xs={12}>
-            <Button type="submit" variant="contained" size="large">
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{ background: "black", color: "white" }}
+            >
               {t(btnText)}
             </Button>
           </Grid>

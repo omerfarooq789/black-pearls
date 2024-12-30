@@ -215,10 +215,15 @@ export const LanguageSwitcher: React.FC<{
           aria-label="select merge strategy"
           aria-haspopup="menu"
           onClick={handleToggle}
-          sx={{ color: "black" }}
+          sx={{
+            color: "black",
+            flexDirection: i18n.language === "ar" ? "row-reverse" : "row",
+          }}
           endIcon={<ArrowDropDownIcon />}
         >
-          <SvgIcon>{i18n.language === "ar" ? Saudia : USA}</SvgIcon>
+          <SvgIcon sx={{ ...(i18n.language === "ar" && { ml: 1.4 }) }}>
+            {i18n.language === "ar" ? Saudia : USA}
+          </SvgIcon>
         </Button>
       </ButtonGroup>
       <Popper
