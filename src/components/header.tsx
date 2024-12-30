@@ -47,7 +47,7 @@ export const Header: FC = () => {
 
   return (
     <AppBar position="sticky" sx={{ top: 0, width: "100%" }}>
-      <Container>
+      <Container maxWidth="xl">
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           {isSmallScreen && (
             <IconButton
@@ -59,7 +59,13 @@ export const Header: FC = () => {
               <MenuIcon />
             </IconButton>
           )}
-          <Box sx={{ flexGrow: 1, display: "flex", justifyContent: "center" }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: "flex",
+              justifyContent: { xs: "center", md: "start" },
+            }}
+          >
             <img
               src="https://assets.zyrosite.com/YrDlZMrOaPuW2xBy/blackpearls-mnlv8PLLGPFO6gX3.svg"
               alt="logo"
