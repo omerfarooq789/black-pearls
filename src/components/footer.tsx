@@ -160,7 +160,7 @@ export const Footer: React.FC = () => {
                 underline="hover"
                 sx={{ color: "inherit" }}
               >
-                +966 50 711 6423
+                {t("common.phoneNum")}
               </Link>
             </Box>
             <Box>

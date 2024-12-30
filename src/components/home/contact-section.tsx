@@ -17,7 +17,7 @@ const ContactDetail: React.FC = () => {
         {t("common.contactTypes.phone")}
       </Typography>
       <Link href="tel:+966507116423" target="_self" sx={{ color: "inherit" }}>
-        +966 50 711 6423
+        {t("common.phoneNum")}
       </Link>
       <Typography variant="body1" fontWeight="bold">
         {t("common.contactTypes.email")}
