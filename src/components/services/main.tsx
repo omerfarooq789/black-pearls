@@ -2,9 +2,11 @@ import { FC } from "react";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { servicesSectionData } from "../../assets/data";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 export const ServicesMain: FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   return (
     <Container sx={{ py: 8 }}>
       <Typography variant="h2" gutterBottom align="center" fontWeight="bold">
@@ -37,6 +39,9 @@ export const ServicesMain: FC = () => {
               <Button
                 variant="outlined"
                 size="large"
+                onClick={() => {
+                  navigate(`/services/${item.type}`);
+                }}
                 sx={{ width: "fit-content", mt: 2, borderRadius: "50px" }}
               >
                 {t("pages.services.listBtn")}
