@@ -14,11 +14,16 @@ import {
   useMediaQuery,
   Box,
   Theme,
+  Menu,
+  MenuItem,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import { LanguageSwitcher } from "./language-switcher";
+import { ServicesTypes } from "../enums";
 
 export const Header: FC = () => {
   const { pathname } = useLocation();
@@ -26,6 +31,7 @@ export const Header: FC = () => {
   const navigate = useNavigate();
 
   const [isDrawerOpen, setDrawerOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const isSmallScreen = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("md")
   );
@@ -40,9 +46,29 @@ export const Header: FC = () => {
     return i18n.language === "ar" ? list.reverse() : list;
   }, [i18n.language]);
 
+  const servicesSubMenu = [
+    {
+      text: "common.header.servicesList.all",
+      route: "/services",
+    },
+    ...Object.values(ServicesTypes).map((type) => ({
+      text: `common.header.servicesList.${type}`,
+      route: `/services/${type}`,
+    })),
+  ];
+
   const handleNavigate = (route: string) => {
     navigate(route);
     setDrawerOpen(false);
+    setAnchorEl(null);
+  };
+
+  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
   };
 
   return (
@@ -93,39 +119,91 @@ export const Header: FC = () => {
               alignItems="center"
               flexDirection={i18n.language === "ar" ? "row-reverse" : "row"}
             >
-              {btnsList.map((btn, index) => (
-                <Button
-                  key={index}
-                  sx={{
-                    borderRadius: 1,
-                    px: "16px !important",
-                    py: "6px !important",
-                    ...(btn.route === pathname && {
-                      fontWeight: 600,
-                      borderBottomLeftRadius: 0,
-                      borderBottomRightRadius: 0,
-                      borderBottom: "1px solid",
-                    }),
-                  }}
-                  color="inherit"
-                  onClick={() => navigate(btn.route)}
-                >
-                  {t(btn.text)}
-                </Button>
-              ))}
+              {btnsList.map((btn, index) =>
+                btn.text === "common.header.services" ? (
+                  <Box key={index} sx={{ position: "relative" }}>
+                    <Button
+                      sx={{
+                        borderRadius: 1,
+                        px: "16px !important",
+                        py: "6px !important",
+                        ...(Boolean(anchorEl) && {
+                          background: "#f5f5f5",
+                        }),
+                        ...(pathname.includes(btn.route) && {
+                          fontWeight: 600,
+                          borderBottomLeftRadius: 0,
+                          borderBottomRightRadius: 0,
+                          borderBottom: "1px solid",
+                        }),
+                      }}
+                      color="inherit"
+                      onMouseEnter={handleMenuOpen}
+                      onClick={() => navigate(btn.route)}
+                      endIcon={
+                        anchorEl ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />
+                      }
+                    >
+                      {t(btn.text)}
+                    </Button>
+                    <Menu
+                      anchorEl={anchorEl}
+                      open={Boolean(anchorEl)}
+                      onClose={handleMenuClose}
+                      MenuListProps={{ onMouseLeave: handleMenuClose }}
+                      anchorOrigin={{
+                        vertical: "bottom",
+                        horizontal: "center",
+                      }}
+                      transformOrigin={{
+                        vertical: "top",
+                        horizontal: "center",
+                      }}
+                    >
+                      {servicesSubMenu.map((item, idx) => (
+                        <MenuItem
+                          key={idx}
+                          onClick={() => handleNavigate(item.route)}
+                        >
+                          {t(item.text)}
+                        </MenuItem>
+                      ))}
+                    </Menu>
+                  </Box>
+                ) : (
+                  <Button
+                    key={index}
+                    sx={{
+                      borderRadius: 1,
+                      px: "16px !important",
+                      py: "6px !important",
+                      ...(btn.route === pathname && {
+                        fontWeight: 600,
+                        borderBottomLeftRadius: 0,
+                        borderBottomRightRadius: 0,
+                        borderBottom: "1px solid",
+                      }),
+                    }}
+                    color="inherit"
+                    onClick={() => navigate(btn.route)}
+                  >
+                    {t(btn.text)}
+                  </Button>
+                )
+              )}
               <LanguageSwitcher setDrawerOpen={setDrawerOpen} />
             </Stack>
           )}
         </Toolbar>
       </Container>
       <Drawer
-        anchor="left" // Open menu from the left
+        anchor="left"
         open={isDrawerOpen}
         onClose={() => setDrawerOpen(false)}
         sx={{
           "& .MuiDrawer-paper": {
-            width: "100%", // Full width for a fullscreen feel
-            height: "100%", // Full height
+            width: "100%",
+            height: "100%",
             backgroundColor: "background.default",
             color: "text.primary",
           },

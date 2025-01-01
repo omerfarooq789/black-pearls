@@ -1,11 +1,21 @@
 {
   "common": {
     "phoneNum": "٦٤۲۳ ۷۱۱ ٥۰ ۹٦٦+",
+    "pageNotExist": "الصفحة غير موجودة",
     "header": {
       "home": "الرئيسية",
       "services": "الخدمات",
+      "servicesList": {
+        "all": "جميع الخدمات",
+        "hvac": "حلول التكييف والتدفئة",
+        "electrical": "الخدمات الكهربائية",
+        "fireSafety": "حلول السلامة من الحرائق",
+        "plumbing": "حلول السباكة",
+        "surveillance": "المراقبة والأمان",
+        "maintenance": "عقود الصيانة"
+      },
       "projects": "المشاريع",
-      "contact": "تواصل معنا"
+      "contact": "اتصل بنا"
     },
     "footer": {
       "companyDescription": "مقاول ميكانيكا وكهرباء وسباكة رائد في السعودية منذ التأسيس.",

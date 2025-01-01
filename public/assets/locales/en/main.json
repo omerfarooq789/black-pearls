@@ -1,9 +1,19 @@
 {
   "common": {
     "phoneNum": "+966 50 711 6423",
+    "pageNotExist": "Page Not Found",
     "header": {
       "home": "Home",
       "services": "Services",
+      "servicesList": {
+        "all": "All Services",
+        "hvac": "HVAC Solutions",
+        "electrical": "Electrical Services",
+        "fireSafety": "Fire Safety Solutions",
+        "plumbing": "Plumbing Solutions",
+        "surveillance": "Surveillance and Security",
+        "maintenance": "Maintenance Contracts"
+      },
       "projects": "Projects",
       "contact": "Contact"
     },

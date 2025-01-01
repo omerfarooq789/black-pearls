@@ -11,6 +11,7 @@ import {
   ClickAwayListener,
 } from "@mui/material";
 
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 import { useTranslation } from "react-i18next";
@@ -219,7 +220,7 @@ export const LanguageSwitcher: React.FC<{
             color: "black",
             flexDirection: i18n.language === "ar" ? "row-reverse" : "row",
           }}
-          endIcon={<ArrowDropDownIcon />}
+          endIcon={open ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
         >
           <SvgIcon sx={{ ...(i18n.language === "ar" && { ml: 1.4 }) }}>
             {i18n.language === "ar" ? Saudia : USA}
