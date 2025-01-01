@@ -18,6 +18,7 @@
     "@mui/material": "^6.3.0",
     "axios": "^1.7.9",
     "axios-observable": "^2.1.0",
+    "emailjs-com": "^3.2.0",
     "i18next": "^24.2.0",
     "i18next-http-backend": "^3.0.1",
     "observable-hooks": "^4.2.4",

@@ -204,6 +204,7 @@ export const Footer: React.FC = () => {
                           ...(!(fieldState.invalid && fieldState.error) && {
                             color: "white !important",
                           }),
+                          mb: 0.5,
                         }}
                       >
                         {t("common.footer.projects.field.label")}

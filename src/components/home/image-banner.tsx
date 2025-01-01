@@ -13,6 +13,7 @@ export const ImageBanner: FC = () => {
       py={8}
       sx={{
         height: "70vh",
+        minHeight: "fit-content",
         color: (theme) => theme.palette.common.white,
         backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(
           "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=3840fit=crop/YrDlZMrOaPuW2xBy/blackpearls1-A1awx84a6qHK3489.webp"
@@ -31,10 +32,10 @@ export const ImageBanner: FC = () => {
           rowGap: 4,
         }}
       >
-        <Typography variant="h2">
+        <Typography variant="h2" gutterBottom>
           {t("pages.home.imageBanner.title")}
         </Typography>
-        <Typography variant="body1">
+        <Typography variant="body1" sx={{ width: { xs: "100%", md: "60%" } }}>
           {t("pages.home.imageBanner.description")}
         </Typography>
         <Button

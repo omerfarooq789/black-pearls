@@ -22,6 +22,13 @@ const ltrCache = createCache({
 const commonTheme = {
   typography: {
     fontFamily: "OpenSans, sans-serif",
+    h2: {
+      fontSize: "4rem",
+      fontWeight: 400,
+    },
+    h3: {
+      fontWeight: 600,
+    },
   },
   palette: {
     mode: "light",
@@ -40,6 +47,11 @@ const commonTheme = {
       styleOverrides: {
         root: {
           borderRadius: "50px",
+          "&.MuiButton-sizeLarge": {
+            padding: "12px 25px",
+            textTransform: "none",
+            fontSize: "1rem",
+          },
         },
       },
     },

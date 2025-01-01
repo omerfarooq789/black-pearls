@@ -98,6 +98,8 @@ export const Header: FC = () => {
                   key={index}
                   sx={{
                     borderRadius: 1,
+                    px: "16px !important",
+                    py: "6px !important",
                     ...(btn.route === pathname && {
                       fontWeight: 600,
                       borderBottomLeftRadius: 0,

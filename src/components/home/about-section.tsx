@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Container,
-  Grid,
-  Typography,
-  Paper,
-  useMediaQuery,
-  Theme,
-} from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 const aboutSectionData: {
@@ -29,45 +21,60 @@ const aboutSectionData: {
 
 export const AboutSection: React.FC = () => {
   const { t } = useTranslation();
-  const isSmallScreen = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down("sm")
-  );
   return (
     <Container sx={{ py: 10 }}>
-      <Paper elevation={0} sx={{ p: 4 }}>
-        <Grid container rowGap={3}>
-          {aboutSectionData.map((item, index) => (
-            <Grid
-              container
-              spacing={4}
-              key={index}
-              direction={index / 2 == 0 ? "row" : "row-reverse"}
-              alignItems="center"
-            >
-              <Grid item xs={12} md={6}>
-                <Typography
-                  variant={isSmallScreen ? "h3" : "h2"}
-                  gutterBottom
-                  fontWeight="bold"
-                >
-                  {t(item.title)}
-                </Typography>
-                <Typography variant="body1" color="text.secondary">
-                  {t(item.description)}
-                </Typography>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Box
-                  component="img"
-                  src={item.img}
-                  alt={t(item.title)}
-                  sx={{ width: "100%", height: "auto", borderRadius: 2 }}
-                />
-              </Grid>
+      <Grid container rowGap={5}>
+        {aboutSectionData.map((item, index) => (
+          <Grid
+            container
+            spacing={4}
+            key={index}
+            direction={index / 2 == 0 ? "row" : "row-reverse"}
+            alignItems="center"
+          >
+            <Grid item xs={12} md={6}>
+              <Typography
+                variant="h3"
+                gutterBottom
+                sx={{
+                  ...(index / 2 == 0
+                    ? {
+                        pr: { xs: 0, md: 12 },
+                      }
+                    : {
+                        pl: { xs: 0, md: 12 },
+                      }),
+                }}
+              >
+                {t(item.title)}
+              </Typography>
+              <Typography
+                variant="body1"
+                color="text.secondary"
+                sx={{
+                  ...(index / 2 == 0
+                    ? {
+                        pr: { xs: 0, md: 12 },
+                      }
+                    : {
+                        pl: { xs: 0, md: 12 },
+                      }),
+                }}
+              >
+                {t(item.description)}
+              </Typography>
             </Grid>
-          ))}
-        </Grid>
-      </Paper>
+            <Grid item xs={12} md={6}>
+              <Box
+                component="img"
+                src={item.img}
+                alt={t(item.title)}
+                sx={{ width: "100%", height: "auto", borderRadius: 2 }}
+              />
+            </Grid>
+          </Grid>
+        ))}
+      </Grid>
     </Container>
   );
 };
