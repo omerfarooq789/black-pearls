@@ -1,5 +1,9 @@
 import { FC } from "react";
-import { PageHeading } from "../components";
+import {
+  AboutServices,
+  PageHeading,
+  ServicesAdditionalFeatures,
+} from "../components";
 import { useParams } from "react-router-dom";
 
 export const ServicesDetails: FC = () => {
@@ -7,9 +11,11 @@ export const ServicesDetails: FC = () => {
   return (
     <>
       <PageHeading
-        title={`common.servicesList.${type}.title`}
+        title={`common.servicesList.${type}.aboutTitle`}
         description={`common.servicesList.${type}.description`}
       />
+      <AboutServices />
+      <ServicesAdditionalFeatures />
     </>
   );
 };

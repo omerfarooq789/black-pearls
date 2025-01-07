@@ -44,7 +44,6 @@ export const ImageBanner: FC = () => {
           onClick={() => navigate("/contact")}
           sx={{
             width: "fit-content",
-            borderRadius: "50px",
           }}
         >
           {t("pages.home.imageBanner.btn")}

@@ -36,29 +36,302 @@
       }
     },
     "servicesList": {
+      "servicesInclude": "Our Services Include",
+      "additionalFeatures": "Additional Features",
+      "contactUsBtn": "Contact Us",
       "hvac": {
         "title": "HVAC Solutions",
-        "description": "From design to installation and maintenance, our HVAC solutions provide reliable climate control tailored to each project's requirements."
+        "aboutTitle": "About Our HVAC Solutions",
+        "description": "From design to installation and maintenance, our HVAC solutions provide reliable climate control tailored to each project's requirements.",
+        "descriptionLong": "At <strong>The Black Pearls</strong>, we are passionate about delivering high-quality HVAC solutions that promote comfort, efficiency, and safety in both residential and commercial environments. Our services are designed to not only meet but exceed the needs of our clients, providing long-term solutions for all your heating, cooling, and ventilation requirements. With years of experience in the industry, we have honed our expertise to offer a comprehensive range of services that include everything from system design and installation to routine maintenance and emergency repairs. Whether you are constructing a new space, renovating an existing one, or simply looking to improve your HVAC system’s performance, <strong>The Black Pearls</strong> is your trusted partner in ensuring that your indoor environment remains comfortable year-round.",
+        "services": {
+          "customHvacSystemDesign": {
+            "title": "Custom HVAC System Design",
+            "description": "At <strong>The Black Pearls</strong>, we understand that every building and space has unique requirements. That’s why we offer custom HVAC system designs tailored specifically to your space’s layout and usage. Our engineers work closely with you to understand your needs, taking into account factors such as square footage, airflow patterns, insulation, and energy efficiency goals. We aim to strike the perfect balance between efficiency and comfort, ensuring your system provides optimal temperature control while reducing energy consumption. Our designs are built to enhance the overall comfort of your space while lowering operating costs."
+          },
+          "expertInstallation": {
+            "title": "Expert Installation",
+            "description": "Once your system is designed, our team of certified HVAC professionals handles the installation process with precision and care. We use only the best materials and equipment to ensure a durable and efficient system setup. From air conditioners and furnaces to ventilation and duct systems, we adhere to industry standards and best practices to guarantee a flawless installation. Our technicians take extra care to ensure minimal disruption to your daily activities during the installation process, and we conduct thorough testing to ensure everything is operating as intended."
+          },
+          "routineMaintenance": {
+            "title": "Routine Maintenance",
+            "description": "One of the most cost-effective ways to prolong the life of your HVAC system and avoid unexpected breakdowns is through regular maintenance. At <strong>The Black Pearls</strong>, we offer comprehensive maintenance programs that are designed to keep your system running at peak performance. Our maintenance services include cleaning and inspecting air filters, ducts, coils, and components, as well as checking refrigerant levels and overall system efficiency. Regular maintenance not only ensures that your system operates efficiently, but it also helps improve indoor air quality and reduce energy consumption."
+          },
+          "emergencyRepairs": {
+            "title": "Emergency Repairs",
+            "description": "HVAC systems can fail when you least expect it, which is why we offer emergency repair services 24/7. Whether your air conditioning stops working in the middle of a heatwave or your heating system fails during a cold snap, our team is here to restore comfort to your home or business quickly. Our technicians are equipped to handle a wide variety of HVAC issues, from temperature inconsistencies and strange noises to complete system breakdowns. We arrive promptly and diagnose the problem efficiently, offering reliable solutions to get your system up and running again."
+          },
+          "energyEfficientSolutions": {
+            "title": "Energy-Efficient Solutions",
+            "description": "At <strong>The Black Pearls</strong>, we are committed to helping you reduce your carbon footprint and energy bills. We integrate cutting-edge energy-efficient technologies into every installation and upgrade, from smart thermostats to variable-speed compressors. Our team works with you to identify areas where energy consumption can be reduced, ensuring that your HVAC system operates with maximum efficiency. Whether you are looking to replace an outdated unit or optimize your current system, we can help you select energy-efficient solutions that meet your budget and sustainability goals."
+          }
+        },
+        "additionalFeatures": {
+          "smartThermostats": {
+            "title": "Smart Thermostats",
+            "description": "Integration of smart thermostats for remote control and optimal temperature management."
+          },
+          "airQualityEnhancement": {
+            "title": "Air Quality Enhancement",
+            "description": "The air quality in your home or business plays a crucial role in your overall health and comfort. We offer a range of air filtration and purification systems that remove harmful pollutants, dust, allergens, and bacteria from the air."
+          },
+          "emergencyRepairsFeature": {
+            "title": "24/7 Emergency Repairs",
+            "description": "Available around-the-clock HVAC repair services to minimize system downtime and disruptions."
+          },
+          "energyEfficientTechnologies": {
+            "title": "Energy-Efficient Technologies",
+            "description": "Installation of energy-saving technologies to reduce energy consumption and operating costs."
+          }
+        },
+        "footer": {
+          "text": "With a commitment to providing optimum temperature control, reducing energy consumption, and enhancing indoor air quality, <strong>The Black Pearls</strong> is proud to be your trusted partner in HVAC solutions. Our expertise, attention to detail, and dedication to customer satisfaction make us the preferred choice for homeowners and businesses alike."
+        }
       },
       "electrical": {
         "title": "Electrical Services",
-        "description": "Our electrical services cover a range of needs, from initial setup to ongoing maintenance, with a focus on safety and efficiency."
+        "aboutTitle": "About Our Electrical Services",
+        "description": "Our electrical services cover a range of needs, from initial setup to ongoing maintenance, with a focus on safety and efficiency.",
+        "descriptionLong": "At <strong>The Black Pearls</strong>, we provide comprehensive electrical services designed to meet the diverse needs of both residential and commercial clients. Whether you are building a new space, upgrading an existing electrical system, or addressing an urgent electrical issue, our team of licensed electricians is here to ensure that your electrical systems are safe, reliable, and efficient. Our services span a wide range, from new installations and system upgrades to routine maintenance and emergency repairs, all with a focus on modern safety standards and energy efficiency.",
+        "services": {
+          "newInstallations": {
+            "title": "New Electrical Installations",
+            "description": "When constructing a new building or renovating an existing one, having a well-designed and reliable electrical system is crucial. At <strong>The Black Pearls</strong>, we offer customized electrical system design and installation. We assess your needs to design a system that ensures the smooth operation of all electrical appliances, lighting, and equipment. Our electricians handle everything from power supply and wiring to the installation of lighting fixtures, outlets, and circuit panels, ensuring a seamless and efficient setup."
+          },
+          "systemUpgradesRewiring": {
+            "title": "System Upgrades and Rewiring",
+            "description": "Older electrical systems may struggle to meet modern demands, leading to inefficiencies, safety risks, and higher energy costs. We specialize in upgrading outdated systems by replacing old wiring, installing new circuit breakers, and enhancing electrical panels. Our goal is to improve safety, boost system efficiency, and accommodate newer electrical technologies, such as smart home systems. If your electrical system is no longer up to code, our experts can help bring it in line with the latest industry standards."
+          },
+          "emergencyRepairs": {
+            "title": "Emergency Electrical Repairs",
+            "description": "Electrical emergencies can arise unexpectedly, posing significant safety risks. At <strong>The Black Pearls</strong>, we offer 24/7 emergency electrical services to address urgent issues such as power outages, electrical fires, tripped circuit breakers, and malfunctioning appliances. Our electricians arrive promptly, equipped with advanced diagnostic tools to identify the cause of the problem and carry out necessary repairs. We take pride in offering fast, reliable service to restore your electrical system and peace of mind."
+          },
+          "troubleshootingDiagnostics": {
+            "title": "Troubleshooting and Diagnostics",
+            "description": "Electrical issues such as flickering lights, sparking outlets, or overloaded circuits can disrupt daily life and indicate underlying problems. Our team is skilled in troubleshooting and diagnosing electrical issues with precision. Using state-of-the-art diagnostic equipment, we identify the root cause of the problem, whether it’s faulty wiring, overloaded circuits, or malfunctioning equipment, and provide safe, effective solutions."
+          },
+          "energyEfficientSolutions": {
+            "title": "Energy-Efficient Solutions",
+            "description": "At <strong>The Black Pearls</strong>, we are committed to helping you reduce energy consumption and lower your utility bills. We offer a variety of energy-efficient solutions, including LED lighting installation, smart home automation, and energy-saving appliances. Our team helps you integrate energy-efficient systems that not only improve the performance of your electrical system but also reduce your carbon footprint."
+          }
+        },
+        "additionalFeatures": {
+          "smartHomeIntegration": {
+            "title": "Smart Home Integration",
+            "description": "As technology continues to evolve, so do the ways in which we interact with our homes. We offer smart home integration services, allowing you to control lighting, climate, and security systems remotely via smart devices."
+          },
+          "ledLightingInstallation": {
+            "title": "LED Lighting Installation",
+            "description": "Energy-efficient LED lighting systems that reduce power consumption and improve overall lighting quality."
+          },
+          "surgeProtection": {
+            "title": "Surge Protection",
+            "description": "Protection from power surges to safeguard electrical appliances and systems."
+          },
+          "electricalSafetyInspections": {
+            "title": "Electrical Safety Inspections",
+            "description": "Thorough electrical inspections to ensure systems meet current safety codes and regulations."
+          }
+        },
+        "footer": {
+          "text": "At <strong>The Black Pearls</strong>, we take great pride in providing reliable, efficient, and safe electrical services to our clients. Our licensed electricians are fully trained to handle all types of electrical needs, ensuring that your systems are always operating at their best. Whether you’re a homeowner looking to upgrade your electrical system or a business owner in need of energy-saving solutions, we’re here to deliver exceptional service every time."
+        }
       },
       "fireSafety": {
         "title": "Fire Safety Solutions",
-        "description": "We offer advanced fire protection systems, designed to safeguard assets and ensure compliance with safety standards."
+        "aboutTitle": "About Our Fire Safety Solutions",
+        "description": "We offer advanced fire protection systems, designed to safeguard assets and ensure compliance with safety standards.",
+        "descriptionLong": "At <strong>The Black Pearls</strong>, we understand that fire safety is essential for protecting both people and property. Whether for residential or commercial properties, fire protection systems are critical in safeguarding lives, preserving assets, and ensuring the continuous operation of your business. We offer advanced fire safety solutions, including the design, installation, and maintenance of fire alarms, suppression systems, fire extinguishers, and sprinklers, all tailored to meet the specific needs of your property. Our goal is to provide comprehensive fire safety coverage, ensuring that your property is fully equipped to prevent and quickly respond to any fire-related emergency.",
+        "services": {
+          "fireAlarmSystems": {
+            "title": "Fire Alarm Systems",
+            "description": "Early detection is key to preventing fire damage and saving lives. We provide state-of-the-art fire alarm systems designed to offer quick and reliable alerts in the event of a fire. Our experts install these systems with precision to ensure that every area of your property is covered, from hallways and rooms to warehouses and basements. These systems are designed to meet the highest safety standards and can be integrated with other fire safety components, ensuring a fast and coordinated response in emergencies."
+          },
+          "fireSuppressionSystems": {
+            "title": "Fire Suppression Systems",
+            "description": "For properties housing valuable equipment or sensitive materials, such as server rooms, industrial kitchens, or data centers, we offer fire suppression systems that are specifically engineered to protect against fires without causing damage to the assets being protected. These systems use specialized agents, such as clean agents, CO2, or foam, to extinguish fires quickly and efficiently, preventing them from spreading and reducing damage to critical infrastructure."
+          },
+          "fireSprinklerSystems": {
+            "title": "Fire Sprinkler Systems",
+            "description": "Fire sprinklers are one of the most reliable and effective methods of controlling a fire until emergency services arrive. We offer the design and installation of high-quality fire sprinkler systems that provide continuous and automatic protection for your property. These systems are installed to meet local codes and are tested regularly to ensure their functionality and reliability."
+          },
+          "fireExtinguishers": {
+            "title": "Fire Extinguishers",
+            "description": "Having portable fire extinguishers strategically placed throughout your property is an essential part of fire safety. We offer a wide range of fire extinguishers for various types of fires, including those fueled by electrical components, flammable liquids, or kitchen fires. Our team ensures that extinguishers are installed in optimal locations, are regularly maintained, and comply with safety regulations."
+          },
+          "safetyAuditsCompliance": {
+            "title": "Fire Safety Audits and Compliance",
+            "description": "We conduct comprehensive fire safety audits to ensure that your property’s fire protection systems are up to code and functioning properly. Our audits include checking the condition of your fire alarms, suppression systems, sprinklers, and extinguishers, as well as ensuring that your property is compliant with local fire safety regulations."
+          }
+        },
+        "additionalFeatures": {
+          "emergencyEvacuationPlans": {
+            "title": "Emergency Evacuation Plans",
+            "description": "Customized plans to guide occupants to safety in the event of a fire."
+          },
+          "fireSafetyTraining": {
+            "title": "Fire Safety Training",
+            "description": "Educating employees and residents on fire prevention and emergency procedures."
+          },
+          "maintenanceInspections": {
+            "title": "Maintenance and Inspections",
+            "description": "Regular maintenance is crucial to ensuring that your fire safety systems function properly when needed most."
+          },
+          "fireExtinguisherServices": {
+            "title": "Fire Extinguisher Services",
+            "description": "Supply, maintenance, and inspection of fire extinguishers to ensure readiness."
+          }
+        },
+        "footer": {
+          "text": "At <strong>The Black Pearls</strong>, we are committed to providing peace of mind by ensuring that your property is fully protected from the risks of fire. Our advanced fire safety solutions are designed to meet the highest standards of safety and compliance, so you can feel confident knowing that your property, assets, and loved ones are well safeguarded."
+        }
       },
       "plumbing": {
         "title": "Plumbing Solutions",
-        "description": "Comprehensive plumbing services for various applications, ensuring water systems are installed and maintained to the highest standards."
+        "aboutTitle": "About Our Plumbing Solutions",
+        "description": "Comprehensive plumbing services for various applications, ensuring water systems are installed and maintained to the highest standards.",
+        "descriptionLong": "At <strong>The Black Pearls</strong>, we provide comprehensive plumbing services designed to meet the needs of both residential and commercial customers. Whether you’re dealing with a minor leak or require a major plumbing overhaul, our licensed and experienced plumbers are ready to assist with reliable, high-quality service. We specialize in a wide range of plumbing solutions, from routine maintenance and repairs to full system installations and upgrades. Our team uses advanced tools and technologies to diagnose issues quickly and provide efficient solutions that keep your water systems functioning smoothly.",
+        "services": {
+          "plumbingInstallations": {
+            "title": "Plumbing Installations",
+            "description": "Whether you’re building a new home or business, or you need a complete system overhaul, <strong>The Black Pearls</strong> offers full plumbing system installations. We ensure that every pipe, fixture, and connection is installed according to the highest industry standards, maximizing efficiency and preventing future issues. From kitchen and bathroom plumbing to whole-house systems, we ensure that your plumbing setup is reliable and functional."
+          },
+          "waterHeaterServices": {
+            "title": "Water Heater Installation and Repair",
+            "description": "Hot water is a necessity in every home and business. We specialize in the installation, repair, and maintenance of water heaters, including traditional tank models, tankless systems, and solar water heaters. If your water heater is malfunctioning or needs replacement, we can help you choose the best model for your needs and ensure it’s installed properly."
+          },
+          "pipeRepairs": {
+            "title": "Pipe Repairs and Leak Detection",
+            "description": "Leaky pipes, corroded plumbing, and burst pipes can cause significant damage to your property if left unchecked. Our team uses advanced leak detection technology to identify and address leaks before they become major issues."
+          },
+          "drainCleaning": {
+            "title": "Drain Cleaning and Unclogging",
+            "description": "Clogged drains can lead to major plumbing problems if not addressed quickly. We provide professional drain cleaning services, using state-of-the-art tools to remove blockages and restore proper flow in sinks, toilets, and other drains."
+          },
+          "emergencyPlumbingServices": {
+            "title": "Emergency Plumbing Services",
+            "description": "Plumbing emergencies can happen at any time, and when they do, it’s essential to act fast to minimize damage. <strong>The Black Pearls</strong> offers 24/7 emergency plumbing services, ensuring you get prompt assistance whenever you need it."
+          }
+        },
+        "additionalFeatures": {
+          "waterFiltrationSystems": {
+            "title": "Water Filtration and Softening Systems",
+            "description": "We also provide solutions to improve the quality of your water. From installing water filtration systems to remove contaminants, to water softening systems that reduce mineral buildup in pipes and appliances."
+          },
+          "routineMaintenance": {
+            "title": "Routine Maintenance and Inspections",
+            "description": "Preventive maintenance is key to keeping your plumbing system running efficiently and avoiding costly repairs. Our team offers routine plumbing inspections and maintenance services to catch potential problems early and ensure your system is in optimal condition."
+          },
+          "leakDetection": {
+            "title": "Leak Detection Services",
+            "description": "Advanced tools for accurate leak detection, preventing further water damage."
+          },
+          "waterHeaterRepair": {
+            "title": "Water Heater Services",
+            "description": "Installation, repair, and maintenance of water heaters, including tankless systems."
+          }
+        },
+        "footer": {
+          "text": "At <strong>The Black Pearls</strong>, we are committed to providing top-notch plumbing services that ensure your water systems are reliable, efficient, and long-lasting. Whether you need to install a new system, upgrade your existing plumbing, or address an emergency, our licensed plumbers have the expertise to deliver solutions that exceed your expectations."
+        }
       },
       "surveillance": {
         "title": "Surveillance and Security",
-        "description": "Our specialized safety and security solutions include systems for surveillance, access control, and emergency readiness, enhancing protection for people and property."
+        "aboutTitle": "About Our Surveillance and Security",
+        "description": "Our specialized safety and security solutions include systems for surveillance, access control, and emergency readiness, enhancing protection for people and property.",
+        "descriptionLong": "At <strong>The Black Pearls</strong>, we understand the importance of protecting both people and property from security threats. Whether you are a homeowner looking to enhance your property’s security or a business owner wanting to safeguard your assets and employees, our specialized safety and security solutions are designed to provide peace of mind. We offer comprehensive security services that include state-of-the-art surveillance systems, advanced access control solutions, and emergency preparedness to ensure that your property is protected 24/7.",
+        "services": {
+          "videoSurveillance": {
+            "title": "Video Surveillance Systems",
+            "description": "We offer cutting-edge surveillance systems equipped with high-definition cameras, motion detection, and remote viewing capabilities. These systems provide real-time monitoring and recording to enhance the safety of your property."
+          },
+          "accessControl": {
+            "title": "Access Control Systems",
+            "description": "Our advanced access control systems allow you to regulate and monitor access to your property. From keycard and biometric entry systems to cloud-based solutions, we ensure your security is always under control."
+          },
+          "intrusionDetection": {
+            "title": "Intrusion Detection Systems",
+            "description": "Protect your property from unauthorized entry with our intrusion detection systems. These systems include motion sensors, door and window alarms, and smart notifications to keep you informed of any security breaches."
+          },
+          "emergencyPreparedness": {
+            "title": "Emergency Preparedness Services",
+            "description": "We help you plan and implement emergency protocols to ensure the safety of your occupants during unforeseen events. This includes designing evacuation plans and installing panic alarm systems."
+          },
+          "systemIntegration": {
+            "title": "Integrated Security Systems",
+            "description": "We integrate all your security systems, including surveillance, access control, and alarms, into a unified platform for streamlined management and monitoring."
+          }
+        },
+        "additionalFeatures": {
+          "remoteMonitoring": {
+            "title": "Remote Monitoring Services",
+            "description": "Monitor your property from anywhere with our remote monitoring solutions, providing you with real-time updates and notifications."
+          },
+          "maintenanceSupport": {
+            "title": "Maintenance and Support",
+            "description": "Ensure the longevity and reliability of your security systems with our maintenance and support services. We offer regular system checks and immediate troubleshooting."
+          },
+          "smartHomeIntegration": {
+            "title": "Smart Home Integration",
+            "description": "Integrate your security systems with smart home technology for enhanced control and convenience."
+          },
+          "monitoring247": {
+            "title": "24/7 Monitoring Services",
+            "description": "Round-the-clock monitoring to ensure continuous protection for your property."
+          }
+        },
+        "footer": {
+          "text": "At <strong>The Black Pearls</strong>, we are committed to providing advanced security solutions tailored to your unique needs. With our expertise, state-of-the-art systems, and dedication to excellence, you can trust us to keep your property safe and secure."
+        }
       },
       "maintenance": {
         "title": "Maintenance Contracts",
-        "description": "We provide complete maintenance services across all MEP disciplines, ensuring smooth operation and longevity of essential systems."
+        "aboutTitle": "About Our Maintenance Contracts",
+        "description": "We provide complete maintenance services across all MEP disciplines, ensuring smooth operation and longevity of essential systems.",
+        "descriptionLong": "At <strong>The Black Pearls</strong>, we understand that maintaining the efficiency and longevity of your building's essential systems is crucial to its operation. Our comprehensive maintenance contracts cover all aspects of Mechanical, Electrical, and Plumbing (MEP) services, ensuring that your critical systems run smoothly year-round. By proactively addressing potential issues through regular inspections, repairs, and updates, we help reduce the risk of unexpected downtime and costly emergency repairs. Our goal is to provide you with peace of mind, knowing that all your systems are operating at their best and providing maximum efficiency.",
+        "services": {
+          "preventiveMaintenance": {
+            "title": "Preventive Maintenance",
+            "description": "Scheduled maintenance services to prevent potential issues and ensure the optimal performance of your systems."
+          },
+          "emergencyRepairs": {
+            "title": "Emergency Repair Services",
+            "description": "Quick and reliable emergency repair services to minimize downtime and restore functionality."
+          },
+          "systemUpgrades": {
+            "title": "System Upgrades",
+            "description": "Upgrading outdated systems to enhance performance, safety, and energy efficiency."
+          },
+          "complianceInspections": {
+            "title": "Compliance Inspections",
+            "description": "Comprehensive inspections to ensure your systems meet local codes and regulations."
+          },
+          "customizedContracts": {
+            "title": "Customized Maintenance Contracts",
+            "description": "Tailored maintenance contracts designed to meet the specific needs of your building and systems."
+          }
+        },
+        "additionalFeatures": {
+          "support247": {
+            "title": "24/7 Support",
+            "description": "Round-the-clock support for maintenance and troubleshooting."
+          },
+          "energyOptimization": {
+            "title": "Energy Optimization Services",
+            "description": "Identify opportunities to reduce energy consumption and lower utility costs through optimized systems."
+          },
+          "advancedDiagnostics": {
+            "title": "Advanced Diagnostics",
+            "description": "Utilizing cutting-edge technology to diagnose and resolve system issues efficiently."
+          },
+          "scheduledInspections": {
+            "title": "Scheduled Inspections",
+            "description": "Regular inspections to identify and address potential issues before they escalate."
+          }
+        },
+        "footer": {
+          "text": "<strong>The Black Pearls</strong> is dedicated to ensuring the reliability and efficiency of your building systems. With our tailored maintenance services and expert support, you can trust us to keep your operations running smoothly and efficiently."
+        }
       }
     },
     "contactForm": {
