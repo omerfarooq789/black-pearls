@@ -48,10 +48,12 @@ export const Header: FC = () => {
 
   const servicesSubMenu = [
     {
+      type: "all",
       text: "common.header.servicesList.all",
       route: "/services",
     },
     ...Object.values(ServicesTypes).map((type) => ({
+      type,
       text: `common.header.servicesList.${type}`,
       route: `/services/${type}`,
     })),
@@ -70,6 +72,7 @@ export const Header: FC = () => {
   const handleMenuClose = () => {
     setAnchorEl(null);
   };
+  console.log(pathname);
 
   return (
     <AppBar position="sticky" sx={{ top: 0, width: "100%" }}>
@@ -163,7 +166,19 @@ export const Header: FC = () => {
                       {servicesSubMenu.map((item, idx) => (
                         <MenuItem
                           key={idx}
-                          onClick={() => handleNavigate(item.route)}
+                          onClick={() => {
+                            if (pathname !== item.route)
+                              handleNavigate(item.route);
+                          }}
+                          sx={{
+                            ...(pathname === item.route && {
+                              background: "#000000a8",
+                              color: "white",
+                              "&:hover": {
+                                color: "black",
+                              },
+                            }),
+                          }}
                         >
                           {t(item.text)}
                         </MenuItem>
