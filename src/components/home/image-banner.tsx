@@ -1,11 +1,11 @@
 import { Box, Typography, Button, Container } from "@mui/material";
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { useCustomNavigate } from "../../hooks";
 
 export const ImageBanner: FC = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
   return (
     <Box
       display="flex"

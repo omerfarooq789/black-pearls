@@ -93,7 +93,6 @@ const rtlTheme = createTheme({
 const App: React.FC = () => {
   const { i18n } = useTranslation();
   const isRtl = i18n.language === "ar";
-
   return (
     <CacheProvider value={isRtl ? rtlCache : ltrCache}>
       <ThemeProvider theme={isRtl ? rtlTheme : ltrTheme}>

@@ -2,11 +2,11 @@ import { FC } from "react";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { servicesSectionData } from "../../assets/data";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { useCustomNavigate } from "../../hooks";
 
 export const ServicesMain: FC = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
   return (
     <Container sx={{ py: 8 }}>
       <Typography variant="h2" gutterBottom align="center" fontWeight="bold">

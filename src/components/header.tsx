@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from "react";
+import { FC, useCallback, useMemo, useState } from "react";
 import {
   AppBar,
   Button,
@@ -18,17 +18,31 @@ import {
   MenuItem,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import { LanguageSwitcher } from "./language-switcher";
 import { ServicesTypes } from "../enums";
+import { useCustomNavigate } from "../hooks";
+
+const servicesSubMenu = [
+  {
+    type: "all",
+    text: "common.header.servicesList.all",
+    route: "/services",
+  },
+  ...Object.values(ServicesTypes).map((type) => ({
+    type,
+    text: `common.header.servicesList.${type}`,
+    route: `/services/${type}`,
+  })),
+];
 
 export const Header: FC = () => {
   const { pathname } = useLocation();
   const { t, i18n } = useTranslation();
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
 
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -46,33 +60,22 @@ export const Header: FC = () => {
     return i18n.language === "ar" ? list.reverse() : list;
   }, [i18n.language]);
 
-  const servicesSubMenu = [
-    {
-      type: "all",
-      text: "common.header.servicesList.all",
-      route: "/services",
+  const handleNavigate = useCallback(
+    (route: string) => {
+      navigate(route);
+      setDrawerOpen(false);
+      setAnchorEl(null);
     },
-    ...Object.values(ServicesTypes).map((type) => ({
-      type,
-      text: `common.header.servicesList.${type}`,
-      route: `/services/${type}`,
-    })),
-  ];
+    [navigate]
+  );
 
-  const handleNavigate = (route: string) => {
-    navigate(route);
-    setDrawerOpen(false);
-    setAnchorEl(null);
-  };
-
-  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+  const handleMenuOpen = useCallback((event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
-  };
+  }, []);
 
-  const handleMenuClose = () => {
+  const handleMenuClose = useCallback(() => {
     setAnchorEl(null);
-  };
-  console.log(pathname);
+  }, []);
 
   return (
     <AppBar position="sticky" sx={{ top: 0, width: "100%" }}>
@@ -109,9 +112,7 @@ export const Header: FC = () => {
               alt="logo"
               width={233}
               height={80}
-              onClick={() => {
-                if (pathname !== "/") navigate("/");
-              }}
+              onClick={() => navigate("/")}
               style={{ cursor: "pointer" }}
             />
           </Box>
@@ -142,7 +143,6 @@ export const Header: FC = () => {
                       }}
                       color="inherit"
                       onMouseEnter={handleMenuOpen}
-                      onClick={() => navigate(btn.route)}
                       endIcon={
                         anchorEl ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />
                       }
@@ -167,8 +167,7 @@ export const Header: FC = () => {
                         <MenuItem
                           key={idx}
                           onClick={() => {
-                            if (pathname !== item.route)
-                              handleNavigate(item.route);
+                            handleNavigate(item.route);
                           }}
                           sx={{
                             ...(pathname === item.route && {
