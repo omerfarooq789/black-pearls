@@ -53,7 +53,12 @@ export const ServicesSection: React.FC = () => {
               <SwiperSlide key={index}>
                 <Paper
                   elevation={0}
-                  sx={{ overflow: "hidden", borderRadius: 2, mt: 2 }}
+                  sx={{
+                    overflow: "hidden",
+                    borderRadius: 2,
+                    mt: 2,
+                    cursor: "pointer",
+                  }}
                 >
                   <Box
                     className="flex-1"

@@ -114,12 +114,12 @@ export const ReviewSection: FC = () => {
                     height: isMdScreen ? "fit-content" : "350px",
                     textAlign: "center",
                     alignItems: "center",
-                    color: (theme) => theme.palette.common.white,
                   }}
                 >
                   <Card
                     className="flex-1"
                     sx={{
+                      cursor: "pointer",
                       justifyContent: "center",
                       width: isSmallScreen ? "100%" : "80%",
                       textAlign: "center",
