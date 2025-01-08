@@ -1,11 +1,22 @@
 import { FC } from "react";
-import { Box, Typography, Paper, Container, Avatar } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Container,
+  Avatar,
+  Card,
+  CardContent,
+  Divider,
+  useMediaQuery,
+  Theme,
+} from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+import StarIcon from "@mui/icons-material/Star";
 import { useTranslation } from "react-i18next";
 
 const reviewSectionData: {
@@ -41,6 +52,14 @@ const reviewSectionData: {
 
 export const ReviewSection: FC = () => {
   const { t } = useTranslation();
+
+  const isMdScreen = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("lg")
+  );
+  const isSmallScreen = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("sm")
+  );
+
   return (
     <Box
       className="flex-1"
@@ -68,10 +87,7 @@ export const ReviewSection: FC = () => {
       <Container
         sx={{
           ".swiper-button-prev,.swiper-button-next": {
-            color: "transparent",
-            "&:hover": {
-              color: "white",
-            },
+            color: "white",
           },
         }}
       >
@@ -79,58 +95,85 @@ export const ReviewSection: FC = () => {
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={30}
-            slidesPerView={1}
-            navigation
+            slidesPerView={isMdScreen ? 1 : 2}
+            navigation={!isSmallScreen}
             pagination={{ clickable: true }}
             autoplay={{ delay: 5000 }}
             loop
           >
             {reviewSectionData.map((item, index) => (
               <SwiperSlide key={index}>
-                <Paper
-                  elevation={0}
+                <Box
+                  className="flex-1"
+                  justifyContent="center"
+                  py={8}
+                  mb={5}
+                  px={2}
+                  rowGap={2}
                   sx={{
-                    overflow: "hidden",
-                    borderRadius: 2,
-                    mt: 2,
-                    background: "transparent",
+                    height: isMdScreen ? "fit-content" : "350px",
+                    textAlign: "center",
+                    alignItems: "center",
+                    color: (theme) => theme.palette.common.white,
                   }}
                 >
-                  <Box
+                  <Card
                     className="flex-1"
-                    justifyContent="center"
-                    py={8}
-                    mb={5}
-                    px={{ xs: 2, md: 11 }}
-                    rowGap={2}
                     sx={{
+                      justifyContent: "center",
+                      width: isSmallScreen ? "100%" : "80%",
                       textAlign: "center",
-                      alignItems: "center",
-                      color: (theme) => theme.palette.common.white,
+                      borderRadius: 3,
+                      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+                      px: { xs: 1, md: 3 },
+                      py: 3,
                     }}
                   >
                     <Avatar
-                      sx={{ width: "150px", height: "150px" }}
-                      alt="Remy Sharp"
                       src={item.imageUrl}
+                      alt="Marissa"
+                      sx={{ width: 80, height: 80, margin: "0 auto", mb: 2 }}
                     />
                     <Box
+                      sx={{ display: "flex", justifyContent: "center", mb: 1 }}
+                    >
+                      {[...Array(5)].map((_, index) => (
+                        <StarIcon key={index} sx={{ color: "#FFB400" }} />
+                      ))}
+                    </Box>
+                    <CardContent
                       sx={{
+                        alignItems: "center",
                         display: "flex",
-                        flexDirection: "row",
-                        columnGap: 1,
-                        alignItems: "start",
+
+                        flexDirection: "column",
+                        rowGap: 1,
                       }}
                     >
-                      <FormatQuoteIcon />
-                      <Typography variant="h6" gutterBottom fontWeight="bold">
+                      <Typography
+                        variant="body1"
+                        sx={{ fontStyle: "italic", color: "#555", mb: 2 }}
+                      >
+                        <FormatQuoteIcon />
                         {t(item.review)}
+                        <FormatQuoteIcon />
                       </Typography>
-                      <FormatQuoteIcon />
-                    </Box>
-                    <Typography variant="h6">{`- ${t(item.reviewer)}`}</Typography>
-                  </Box>
-                </Paper>
+                      <Divider
+                        sx={{
+                          width: "100px",
+                          borderWidth: "thin",
+                          borderColor: "coral",
+                        }}
+                      />
+                      <Typography
+                        variant="subtitle2"
+                        sx={{ fontWeight: "bold" }}
+                      >
+                        {`- ${t(item.reviewer)}`}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Box>
               </SwiperSlide>
             ))}
           </Swiper>

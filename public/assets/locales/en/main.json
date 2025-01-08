@@ -381,7 +381,8 @@
       },
       "servicesSection": {
         "title": "Our Services",
-        "description": "Expert Electro Mechanical solutions in Saudi Arabia, ensuring quality and efficiency in every project."
+        "description": "Expert Electro Mechanical solutions in Saudi Arabia, ensuring quality and efficiency in every project.",
+        "seeMoreBtn": "See More"
       },
       "projectsSection": {
         "title": "Projects section",
@@ -406,7 +407,7 @@
         }
       },
       "reviewsSection": {
-        "title": "What our clients are saying about our company.",
+        "title": "What Our Clients Say",
         "list": {
           "first": {
             "review": "Impressed with the efficiency and professionalism. The entire process was smooth and hassle-free.",

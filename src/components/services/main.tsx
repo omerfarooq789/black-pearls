@@ -1,5 +1,13 @@
 import { FC } from "react";
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Theme,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import { servicesSectionData } from "../../assets/data";
 import { useTranslation } from "react-i18next";
 import { useCustomNavigate } from "../../hooks";
@@ -7,9 +15,18 @@ import { useCustomNavigate } from "../../hooks";
 export const ServicesMain: FC = () => {
   const { t } = useTranslation();
   const navigate = useCustomNavigate();
+
+  const isSmallScreen = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("sm")
+  );
   return (
     <Container sx={{ py: 8 }}>
-      <Typography variant="h2" gutterBottom align="center" fontWeight="bold">
+      <Typography
+        variant={isSmallScreen ? "h3" : "h2"}
+        gutterBottom
+        align="center"
+        fontWeight="bold"
+      >
         {t("pages.services.title")}
       </Typography>
       <Grid container spacing={4} justifyContent="center">

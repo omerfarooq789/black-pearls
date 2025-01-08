@@ -1,5 +1,11 @@
 import { FC } from "react";
-import { Box, Container, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Theme,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 export const PageHeading: FC<{
@@ -10,6 +16,11 @@ export const PageHeading: FC<{
   description = "common.pageHeading.description",
 }) => {
   const { t } = useTranslation();
+
+  const isSmallScreen = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("sm")
+  );
+
   return (
     <Box
       sx={{
@@ -20,7 +31,11 @@ export const PageHeading: FC<{
       }}
     >
       <Container maxWidth="md">
-        <Typography variant="h2" gutterBottom sx={{ fontWeight: "bold" }}>
+        <Typography
+          variant={isSmallScreen ? "h3" : "h2"}
+          gutterBottom
+          sx={{ fontWeight: "bold" }}
+        >
           {t(title)}
         </Typography>
         <Typography

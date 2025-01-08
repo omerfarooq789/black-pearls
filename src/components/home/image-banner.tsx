@@ -1,4 +1,11 @@
-import { Box, Typography, Button, Container } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Button,
+  Container,
+  Theme,
+  useMediaQuery,
+} from "@mui/material";
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { useCustomNavigate } from "../../hooks";
@@ -6,6 +13,10 @@ import { useCustomNavigate } from "../../hooks";
 export const ImageBanner: FC = () => {
   const { t } = useTranslation();
   const navigate = useCustomNavigate();
+
+  const isSmallScreen = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("sm")
+  );
   return (
     <Box
       display="flex"
@@ -32,7 +43,7 @@ export const ImageBanner: FC = () => {
           rowGap: 4,
         }}
       >
-        <Typography variant="h2" gutterBottom>
+        <Typography variant={isSmallScreen ? "h3" : "h2"} gutterBottom>
           {t("pages.home.imageBanner.title")}
         </Typography>
         <Typography variant="body1" sx={{ width: { xs: "100%", md: "60%" } }}>
