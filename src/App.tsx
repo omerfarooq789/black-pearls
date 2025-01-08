@@ -21,7 +21,6 @@ const ltrCache = createCache({
 
 const commonTheme = {
   typography: {
-    fontFamily: "OpenSans, sans-serif",
     h2: {
       fontSize: "4rem",
       fontWeight: 400,
@@ -76,11 +75,19 @@ const commonTheme = {
 const ltrTheme = createTheme({
   direction: "ltr",
   ...(commonTheme as unknown as Partial<Theme>),
+  typography: {
+    fontFamily: "OpenSans, sans-serif",
+    ...commonTheme.typography,
+  },
 });
 
 const rtlTheme = createTheme({
   direction: "rtl",
   ...(commonTheme as unknown as Partial<Theme>),
+  typography: {
+    fontFamily: "Noto Kufi Arabic, sans-serif",
+    ...commonTheme.typography,
+  },
 });
 
 const App: React.FC = () => {

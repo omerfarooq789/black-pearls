@@ -17,7 +17,7 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useAlert } from "../hooks";
 import { AlertTypes, ServicesTypes } from "../enums";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 interface UpdatesForm {
@@ -28,6 +28,8 @@ export const Footer: React.FC = () => {
   const { t } = useTranslation("main");
   const alert = useAlert();
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
   const validation = useMemo(
     () =>
       Yup.object().shape({
@@ -132,6 +134,9 @@ export const Footer: React.FC = () => {
                     "&:hover": {
                       background: "#ffffff3d",
                     },
+                  }}
+                  onClick={() => {
+                    navigate(`/services/${item}`);
                   }}
                 >
                   {t(`common.servicesList.${item}.title`)}
