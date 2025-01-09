@@ -57,8 +57,8 @@ export const Header: FC = () => {
       { text: "common.header.projects", route: "/projects" },
       { text: "common.header.contact", route: "/contact" },
     ];
-    return i18n.language === "ar" ? list.reverse() : list;
-  }, [i18n.language]);
+    return i18n.language === "ar" && !isSmallScreen ? list.reverse() : list;
+  }, [i18n.language, isSmallScreen]);
 
   const handleNavigate = useCallback(
     (route: string) => {
