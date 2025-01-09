@@ -50,8 +50,8 @@ export const ProjectsList: React.FC = () => {
         {projects.map((project, index) => (
           <Grid item xs={12} key={index}>
             <Card sx={{ borderRadius: 4, boxShadow: 0 }}>
-              <Grid container spacing={2}>
-                <Grid item xs={6}>
+              <Grid container spacing={{ xs: 1, md: 2 }}>
+                <Grid item xs={12} md={6}>
                   <CardMedia
                     component="img"
                     height="320"
@@ -60,7 +60,7 @@ export const ProjectsList: React.FC = () => {
                     sx={{ borderRadius: "8px" }}
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} md={6}>
                   <CardMedia
                     component="img"
                     height="320"
