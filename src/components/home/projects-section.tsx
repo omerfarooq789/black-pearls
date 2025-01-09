@@ -9,26 +9,26 @@ const projectsSectionData: {
 }[] = [
   {
     imageUrl:
-      "https://images.unsplash.com/photo-1563164232-b6ee5dd3e821?auto=format&fit=crop&w=1006&h=720",
+      "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1006,h=720,fit=crop/YrDlZMrOaPuW2xBy/63f4768f-c89d-4ab7-b6b0-693ab436e9f2-AGBnqa4Vqwtnl0J6.JPG",
     title: "pages.home.projectsSection.list.first.title",
     description: "pages.home.projectsSection.list.first.description",
   },
   {
     imageUrl:
-      "https://images.unsplash.com/photo-1584443348278-4789e86c7373?auto=format&fit=crop&w=1006&h=720",
+      "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1006,h=720,fit=crop/YrDlZMrOaPuW2xBy/img_3576-m6Lj8GvvnlTyDggq.webp",
     title: "pages.home.projectsSection.list.second.title",
     description: "pages.home.projectsSection.list.second.description",
   },
   {
     imageUrl:
-      "https://images.unsplash.com/photo-1524685364536-a6f820f6c5ce?auto=format&fit=crop&w=1006&h=720",
+      "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1006,h=720,fit=crop/YrDlZMrOaPuW2xBy/untitled-design-1-AGBnql8WDDsJO5q2.png",
     title: "pages.home.projectsSection.list.third.title",
     description: "pages.home.projectsSection.list.third.description",
   },
 
   {
     imageUrl:
-      "https://images.unsplash.com/photo-1516739089214-59baa011fdb9?auto=format&fit=crop&w=1006&h=720",
+      "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1006,h=720,fit=crop/YrDlZMrOaPuW2xBy/bounce-AVL1PjM23vsNjb3j.webp",
     title: "pages.home.projectsSection.list.fourth.title",
     description: "pages.home.projectsSection.list.fourth.description",
   },

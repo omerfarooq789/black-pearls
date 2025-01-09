@@ -20,8 +20,8 @@ const projects: {
     title: "pages.projects.list.hvac.title",
     description: "pages.projects.list.hvac.description",
     images: [
-      "https://images.unsplash.com/photo-1640184713822-174b6e94df51?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHwyfHxtZXAlMjBjb250cmFjdG9yfGVufDB8fHx8MTczMTAyMDk4Nnww&ixlib=rb-4.0.3&auto=format&fit=crop&w=1006&h=720",
       "https://images.unsplash.com/photo-1622467731046-c22f11a94cbb?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHw2fHxtZXAlMjBjb250cmFjdG9yfGVufDB8fHx8MTczMTAyMDk4Nnww&ixlib=rb-4.0.3&auto=format&fit=crop&w=1006&h=720",
+      "https://images.unsplash.com/photo-1640184713822-174b6e94df51?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHwyfHxtZXAlMjBjb250cmFjdG9yfGVufDB8fHx8MTczMTAyMDk4Nnww&ixlib=rb-4.0.3&auto=format&fit=crop&w=1006&h=720",
     ],
     buttonText: "pages.projects.list.hvac.btn",
   },
@@ -29,8 +29,8 @@ const projects: {
     title: "pages.projects.list.fireFighting.title",
     description: "pages.projects.list.fireFighting.description",
     images: [
-      "https://images.unsplash.com/photo-1640184713828-e48c36a3ded8?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHwxMnx8bWVwJTIwY29udHJhY3RvcnxlbnwwfHx8fDE3MzEwMjA5ODZ8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=1006&h=720",
       "https://images.unsplash.com/photo-1633759593085-1eaeb724fc88?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHwyMHx8bWVwJTIwY29udHJhY3RvcnxlbnwwfHx8fDE3MzEwMjA5ODZ8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=1006&h=720",
+      "https://images.unsplash.com/photo-1640184713828-e48c36a3ded8?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHwxMnx8bWVwJTIwY29udHJhY3RvcnxlbnwwfHx8fDE3MzEwMjA5ODZ8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=1006&h=720",
     ],
     buttonText: "pages.projects.list.fireFighting.btn",
   },
