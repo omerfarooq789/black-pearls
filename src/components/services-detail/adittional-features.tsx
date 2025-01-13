@@ -1,14 +1,15 @@
 import React, { useMemo } from "react";
 import { Box, Container, Grid, Typography, Paper, Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { servicesSectionData } from "../../assets/data";
 import { Trans } from "react-i18next";
+import { useCustomNavigate } from "../../hooks";
 
 export const ServicesAdditionalFeatures: React.FC = () => {
   const { t } = useTranslation();
   const { type } = useParams();
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
 
   const currentService = useMemo(() => {
     return servicesSectionData.data.find((item) => item.type === type);

@@ -25,7 +25,7 @@ interface UpdatesForm {
 }
 
 export const Footer: React.FC = () => {
-  const { t } = useTranslation("main");
+  const { t, i18n } = useTranslation("main");
   const alert = useAlert();
   const { pathname } = useLocation();
   const navigate = useCustomNavigate();
@@ -87,6 +87,10 @@ export const Footer: React.FC = () => {
               src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=442,h=152,fit=crop/YrDlZMrOaPuW2xBy/the_black_pearls__1_-removebg-preview-YNqyewgMDBTaXVMx.webp"
               alt="Black Pearl Logo"
               width="80%"
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                navigate(`/${i18n.language}`);
+              }}
             />
             <Typography variant="body2">
               {t("common.footer.companyDescription")}
