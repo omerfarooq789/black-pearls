@@ -134,7 +134,9 @@ export const Header: FC = () => {
                         ...(Boolean(anchorEl) && {
                           background: "#f5f5f5",
                         }),
-                        ...(pathname.includes(btn.route) && {
+                        ...(pathname.includes(
+                          `/${i18n.language}${btn.route}`
+                        ) && {
                           fontWeight: 600,
                           borderBottomLeftRadius: 0,
                           borderBottomRightRadius: 0,
@@ -170,7 +172,8 @@ export const Header: FC = () => {
                             handleNavigate(item.route);
                           }}
                           sx={{
-                            ...(pathname === item.route && {
+                            ...(pathname ===
+                              `/${i18n.language}${item.route}` && {
                               background: "#000000a8",
                               color: "white",
                               "&:hover": {
@@ -191,12 +194,19 @@ export const Header: FC = () => {
                       borderRadius: 1,
                       px: "16px !important",
                       py: "6px !important",
-                      ...(btn.route === pathname && {
+                      ...(pathname === `/${i18n.language}${btn.route}` && {
                         fontWeight: 600,
                         borderBottomLeftRadius: 0,
                         borderBottomRightRadius: 0,
                         borderBottom: "1px solid",
                       }),
+                      ...(pathname === btn.route &&
+                        btn.text === "common.header.home" && {
+                          fontWeight: 600,
+                          borderBottomLeftRadius: 0,
+                          borderBottomRightRadius: 0,
+                          borderBottom: "1px solid",
+                        }),
                     }}
                     color="inherit"
                     onClick={() => navigate(btn.route)}
