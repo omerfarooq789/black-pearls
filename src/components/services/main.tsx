@@ -19,6 +19,9 @@ export const ServicesMain: FC = () => {
   const isSmallScreen = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
   );
+  const isMdScreen = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("lg")
+  );
   return (
     <Container sx={{ py: 8 }}>
       <Typography
@@ -30,7 +33,7 @@ export const ServicesMain: FC = () => {
         {t("pages.services.title")}
       </Typography>
       <Grid container spacing={4} justifyContent="center">
-        {servicesSectionData.map((item, index) => (
+        {servicesSectionData.data.map((item, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <Box
               className="flex-1"
@@ -41,7 +44,7 @@ export const ServicesMain: FC = () => {
                 height: "50vh",
                 px: 4,
                 color: (theme) => theme.palette.common.white,
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),url(${item.imageUrl})`,
+                backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),url(${!isMdScreen ? item.imageUrl.large : !isSmallScreen ? item.imageUrl.medium : item.imageUrl.small})`,
                 backgroundPositionY: "center",
                 backgroundSize: "cover",
                 borderRadius: 4,

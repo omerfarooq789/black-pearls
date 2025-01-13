@@ -70,7 +70,7 @@ export const ReviewSection: FC = () => {
         height: "70vh",
         color: (theme) => theme.palette.common.white,
         backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(
-          "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=3840,fit=crop/YrDlZMrOaPuW2xBy/blackpearls3-copy-mjEvoypo6bCXwkQe.webp"
+          ${!isMdScreen ? "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/YrDlZMrOaPuW2xBy/blackpearls3-copy-mjEvoypo6bCXwkQe.webp" : !isSmallScreen ? "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1280,fit=crop/YrDlZMrOaPuW2xBy/blackpearls3-copy-mjEvoypo6bCXwkQe.webp" : "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/YrDlZMrOaPuW2xBy/blackpearls3-copy-mjEvoypo6bCXwkQe.webp"}
         )`,
         backgroundPositionY: "center",
         backgroundSize: "cover",

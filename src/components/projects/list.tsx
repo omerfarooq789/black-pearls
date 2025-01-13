@@ -9,28 +9,57 @@ import {
   Container,
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import { ImageURL } from "../../models";
 
 const projects: {
   title: string;
   description: string;
-  images: string[];
+  imageUrl: ImageURL[];
   buttonText: string;
 }[] = [
   {
     title: "pages.projects.list.hvac.title",
     description: "pages.projects.list.hvac.description",
-    images: [
-      "https://images.unsplash.com/photo-1622467731046-c22f11a94cbb?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHw2fHxtZXAlMjBjb250cmFjdG9yfGVufDB8fHx8MTczMTAyMDk4Nnww&ixlib=rb-4.0.3&auto=format&fit=crop&w=1006&h=720",
-      "https://images.unsplash.com/photo-1640184713822-174b6e94df51?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHwyfHxtZXAlMjBjb250cmFjdG9yfGVufDB8fHx8MTczMTAyMDk4Nnww&ixlib=rb-4.0.3&auto=format&fit=crop&w=1006&h=720",
+    imageUrl: [
+      {
+        large:
+          "https://images.unsplash.com/photo-1622467731046-c22f11a94cbb?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHw2fHxtZXAlMjBjb250cmFjdG9yfGVufDB8fHx8MTczMTAyMDk4Nnww&ixlib=rb-4.0.3&auto=format&fit=crop&w=1006&h=720",
+        medium:
+          "https://images.unsplash.com/photo-1622467731046-c22f11a94cbb?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHw2fHxtZXAlMjBjb250cmFjdG9yfGVufDB8fHx8MTczMTAyMDk4Nnww&ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=576",
+        small:
+          "https://images.unsplash.com/photo-1622467731046-c22f11a94cbb?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHw2fHxtZXAlMjBjb250cmFjdG9yfGVufDB8fHx8MTczMTAyMDk4Nnww&ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=288",
+      },
+      {
+        large:
+          "https://images.unsplash.com/photo-1640184713822-174b6e94df51?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHwyfHxtZXAlMjBjb250cmFjdG9yfGVufDB8fHx8MTczMTAyMDk4Nnww&ixlib=rb-4.0.3&auto=format&fit=crop&w=1006&h=720",
+        medium:
+          "https://images.unsplash.com/photo-1640184713822-174b6e94df51?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHwyfHxtZXAlMjBjb250cmFjdG9yfGVufDB8fHx8MTczMTAyMDk4Nnww&ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=576",
+        small:
+          "https://images.unsplash.com/photo-1640184713822-174b6e94df51?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHwyfHxtZXAlMjBjb250cmFjdG9yfGVufDB8fHx8MTczMTAyMDk4Nnww&ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=288",
+      },
     ],
     buttonText: "pages.projects.list.hvac.btn",
   },
   {
     title: "pages.projects.list.fireFighting.title",
     description: "pages.projects.list.fireFighting.description",
-    images: [
-      "https://images.unsplash.com/photo-1633759593085-1eaeb724fc88?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHwyMHx8bWVwJTIwY29udHJhY3RvcnxlbnwwfHx8fDE3MzEwMjA5ODZ8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=1006&h=720",
-      "https://images.unsplash.com/photo-1640184713828-e48c36a3ded8?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHwxMnx8bWVwJTIwY29udHJhY3RvcnxlbnwwfHx8fDE3MzEwMjA5ODZ8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=1006&h=720",
+    imageUrl: [
+      {
+        large:
+          "https://images.unsplash.com/photo-1633759593085-1eaeb724fc88?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHwyMHx8bWVwJTIwY29udHJhY3RvcnxlbnwwfHx8fDE3MzEwMjA5ODZ8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=1006&h=720",
+        medium:
+          "https://images.unsplash.com/photo-1633759593085-1eaeb724fc88?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHwyMHx8bWVwJTIwY29udHJhY3RvcnxlbnwwfHx8fDE3MzEwMjA5ODZ8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=576",
+        small:
+          "https://images.unsplash.com/photo-1633759593085-1eaeb724fc88?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHwyMHx8bWVwJTIwY29udHJhY3RvcnxlbnwwfHx8fDE3MzEwMjA5ODZ8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=288",
+      },
+      {
+        large:
+          "https://images.unsplash.com/photo-1640184713828-e48c36a3ded8?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHwxMnx8bWVwJTIwY29udHJhY3RvcnxlbnwwfHx8fDE3MzEwMjA5ODZ8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=1006&h=720",
+        medium:
+          "https://images.unsplash.com/photo-1640184713828-e48c36a3ded8?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHwxMnx8bWVwJTIwY29udHJhY3RvcnxlbnwwfHx8fDE3MzEwMjA5ODZ8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=576",
+        small:
+          "https://images.unsplash.com/photo-1640184713828-e48c36a3ded8?ixid=M3wzOTE5Mjl8MHwxfHNlYXJjaHwxMnx8bWVwJTIwY29udHJhY3RvcnxlbnwwfHx8fDE3MzEwMjA5ODZ8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=288",
+      },
     ],
     buttonText: "pages.projects.list.fireFighting.btn",
   },
@@ -55,7 +84,9 @@ export const ProjectsList: React.FC = () => {
                   <CardMedia
                     component="img"
                     height="320"
-                    image={project.images[0]}
+                    src={project.imageUrl[0].large}
+                    srcSet={`${project.imageUrl[0].small} 400w,${project.imageUrl[0].medium} 800w,${project.imageUrl[0].large} 1600w`}
+                    sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
                     alt={`${t(project.title)} Image 1`}
                     sx={{ borderRadius: "8px" }}
                   />
@@ -64,7 +95,9 @@ export const ProjectsList: React.FC = () => {
                   <CardMedia
                     component="img"
                     height="320"
-                    image={project.images[1]}
+                    src={project.imageUrl[1].large}
+                    srcSet={`${project.imageUrl[1].small} 400w,${project.imageUrl[1].medium} 800w,${project.imageUrl[1].large} 1600w`}
+                    sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
                     alt={`${t(project.title)} Image 2`}
                     sx={{ borderRadius: "8px" }}
                   />

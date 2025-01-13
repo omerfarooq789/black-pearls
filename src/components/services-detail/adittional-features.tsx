@@ -11,7 +11,7 @@ export const ServicesAdditionalFeatures: React.FC = () => {
   const navigate = useNavigate();
 
   const currentService = useMemo(() => {
-    return servicesSectionData.find((item) => item.type === type);
+    return servicesSectionData.data.find((item) => item.type === type);
   }, [type]);
 
   return (

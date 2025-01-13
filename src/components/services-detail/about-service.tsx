@@ -9,7 +9,7 @@ export const AboutServices: React.FC = () => {
   const { t } = useTranslation();
 
   const currentService = useMemo(() => {
-    return servicesSectionData.find((item) => item.type === type);
+    return servicesSectionData.data.find((item) => item.type === type);
   }, [type]);
 
   return (
@@ -69,7 +69,9 @@ export const AboutServices: React.FC = () => {
               <Grid item xs={12} md={6}>
                 <Box
                   component="img"
-                  src={currentService?.galleryImages[index]}
+                  src={servicesSectionData.galleryImages[index].large}
+                  srcSet={`${servicesSectionData.galleryImages[index].small} 400w,${servicesSectionData.galleryImages[index].medium} 800w,${servicesSectionData.galleryImages[index].large} 1600w`}
+                  sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
                   alt={`${t(`common.servicesList.${type}.services.${item}.title`)} - ${index}`}
                   sx={{
                     width: "100%",

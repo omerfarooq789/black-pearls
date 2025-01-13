@@ -14,9 +14,13 @@ export const ImageBanner: FC = () => {
   const { t } = useTranslation();
   const navigate = useCustomNavigate();
 
+  const isMdScreen = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("lg")
+  );
   const isSmallScreen = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
   );
+
   return (
     <Box
       display="flex"
@@ -27,8 +31,15 @@ export const ImageBanner: FC = () => {
         minHeight: "fit-content",
         color: (theme) => theme.palette.common.white,
         backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(
-          "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=3840fit=crop/YrDlZMrOaPuW2xBy/blackpearls1-A1awx84a6qHK3489.webp"
-        )`,
+    ${
+      !isMdScreen
+        ? "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/YrDlZMrOaPuW2xBy/blackpearls1-A1awx84a6qHK3489.webp"
+        : !isSmallScreen
+          ? "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1280,fit=crop/YrDlZMrOaPuW2xBy/blackpearls1-A1awx84a6qHK3489.webp"
+          : "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/YrDlZMrOaPuW2xBy/blackpearls1-A1awx84a6qHK3489.webp"
+    }
+  )
+`,
         backgroundPositionY: "center",
         backgroundSize: "cover",
       }}

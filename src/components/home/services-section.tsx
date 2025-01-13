@@ -49,7 +49,7 @@ export const ServicesSection: React.FC = () => {
           loop
         >
           <Box sx={{ px: 5 }}>
-            {servicesSectionData.map((item, index) => (
+            {servicesSectionData.data.map((item, index) => (
               <SwiperSlide key={index}>
                 <Paper
                   elevation={0}
@@ -69,7 +69,7 @@ export const ServicesSection: React.FC = () => {
                     sx={{
                       textAlign: "center",
                       color: (theme) => theme.palette.common.white,
-                      backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(${item.imageUrl})`,
+                      backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(${!isMdScreen ? item.imageUrl.large : !isSmallScreen ? item.imageUrl.medium : item.imageUrl.small})`,
                       backgroundPositionY: "center",
                       backgroundSize: "cover",
                       borderRadius: 4,
