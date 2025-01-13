@@ -85,7 +85,7 @@ const rtlTheme = createTheme({
   direction: "rtl",
   ...(commonTheme as unknown as Partial<Theme>),
   typography: {
-    fontFamily: "Noto Kufi Arabic, sans-serif",
+    fontFamily: "Rubik, sans-serif",
     ...commonTheme.typography,
   },
 });
