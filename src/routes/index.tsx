@@ -22,10 +22,9 @@ import { useTranslation } from "react-i18next";
 const AllRoutes: FC = () => {
   const { pathname } = useLocation();
   const { i18n } = useTranslation();
-
   useEffect(() => {
     const currentLang = pathname.startsWith("/en") ? "en" : "ar";
-    if (currentLang !== i18n.language) {
+    if (pathname !== "/" && currentLang !== i18n.language) {
       i18n.changeLanguage(currentLang);
     }
   }, [i18n, pathname]);
