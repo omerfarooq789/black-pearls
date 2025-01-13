@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC, lazy, Suspense, useEffect } from "react";
 
 import { Box } from "@mui/material";
 import {
@@ -7,17 +7,24 @@ import {
   Routes,
   useLocation,
   Navigate,
+  Outlet,
 } from "react-router-dom";
-import { Footer, Header } from "../components";
-import {
-  ContactUs,
-  Home,
-  PageNotFound,
-  Projects,
-  Services,
-  ServicesDetails,
-} from "../pages";
+import { Footer, Header, Loader } from "../components";
+
 import { useTranslation } from "react-i18next";
+
+const Home = lazy(() => import("../pages/home"));
+const Projects = lazy(() => import("../pages/projects"));
+const Services = lazy(() => import("../pages/services"));
+const ServicesDetails = lazy(() => import("../pages/services-details"));
+const ContactUs = lazy(() => import("../pages/contact-us"));
+const PageNotFound = lazy(() => import("../pages/page-not-found"));
+
+const SuspenseLayout = () => (
+  <Suspense fallback={<Loader />}>
+    <Outlet />
+  </Suspense>
+);
 
 const AllRoutes: FC = () => {
   const { pathname } = useLocation();
@@ -35,13 +42,15 @@ const AllRoutes: FC = () => {
   return (
     <main>
       <Routes>
-        <Route path="/" element={<Navigate to={`/${i18n.language}`} />} />
-        <Route path="/:lang" element={<Home />} />
-        <Route path="/:lang/services" Component={Services} />
-        <Route path="/:lang/services/:type" Component={ServicesDetails} />
-        <Route path="/:lang/projects" Component={Projects} />
-        <Route path="/:lang/contact" Component={ContactUs} />
-        <Route path="*" Component={PageNotFound} />
+        <Route element={<SuspenseLayout />}>
+          <Route path="/" element={<Navigate to={`/${i18n.language}`} />} />
+          <Route path="/:lang" element={<Home />} />
+          <Route path="/:lang/services" Component={Services} />
+          <Route path="/:lang/services/:type" Component={ServicesDetails} />
+          <Route path="/:lang/projects" Component={Projects} />
+          <Route path="/:lang/contact" Component={ContactUs} />
+          <Route path="*" Component={PageNotFound} />
+        </Route>
       </Routes>
     </main>
   );

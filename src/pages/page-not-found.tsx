@@ -2,7 +2,7 @@ import { Button, Stack, Typography } from "@mui/material";
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 
-export const PageNotFound: FC = () => {
+const PageNotFound: FC = () => {
   const { t, i18n } = useTranslation();
   return (
     <Stack
@@ -24,3 +24,5 @@ export const PageNotFound: FC = () => {
     </Stack>
   );
 };
+
+export default PageNotFound;

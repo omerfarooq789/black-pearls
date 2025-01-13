@@ -6,7 +6,7 @@ import {
 } from "../components";
 import { useParams } from "react-router-dom";
 
-export const ServicesDetails: FC = () => {
+const ServicesDetails: FC = () => {
   const { type } = useParams();
   return (
     <>
@@ -19,3 +19,5 @@ export const ServicesDetails: FC = () => {
     </>
   );
 };
+
+export default ServicesDetails;

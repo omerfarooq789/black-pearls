@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { FC } from "react";
 import { PageHeading, ProjectsList } from "../components";
 
-export const Projects: FC = () => {
+const Projects: FC = () => {
   return (
     <Box>
       <PageHeading />
@@ -10,3 +10,5 @@ export const Projects: FC = () => {
     </Box>
   );
 };
+
+export default Projects;

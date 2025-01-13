@@ -9,7 +9,7 @@ import {
   ContactUsSection,
 } from "../components";
 
-export const Home: FC = () => {
+const Home: FC = () => {
   return (
     <Box className="flex-1">
       <ImageBanner />
@@ -21,3 +21,5 @@ export const Home: FC = () => {
     </Box>
   );
 };
+
+export default Home;

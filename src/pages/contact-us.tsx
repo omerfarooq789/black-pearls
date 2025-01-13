@@ -6,7 +6,7 @@ import {
   ContactUsDetails,
 } from "../components";
 
-export const ContactUs: FC = () => {
+const ContactUs: FC = () => {
   return (
     <Box>
       <ContactUsHeading />
@@ -15,3 +15,5 @@ export const ContactUs: FC = () => {
     </Box>
   );
 };
+
+export default ContactUs;
