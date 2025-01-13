@@ -1,4 +1,11 @@
-import * as React from "react";
+import {
+  Dispatch,
+  FC,
+  SetStateAction,
+  useCallback,
+  useRef,
+  useState,
+} from "react";
 import {
   SvgIcon,
   Button,
@@ -15,6 +22,7 @@ import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 import { useTranslation } from "react-i18next";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Saudia = (
   <svg
@@ -180,24 +188,33 @@ const USA = (
   </svg>
 );
 
-export const LanguageSwitcher: React.FC<{
-  setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+export const LanguageSwitcher: FC<{
+  setDrawerOpen: Dispatch<SetStateAction<boolean>>;
 }> = ({ setDrawerOpen }) => {
   const { i18n } = useTranslation();
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const [open, setOpen] = useState(false);
+  const anchorRef = useRef<HTMLDivElement>(null);
 
-  const handleMenuItemClick = (type: string) => {
-    i18n.changeLanguage(type);
-    setDrawerOpen(false);
-    setOpen(false);
-  };
+  const handleMenuItemClick = useCallback(
+    (type: string) => {
+      const lang = pathname.startsWith("/en") ? "en" : "ar";
+      if (type !== lang) {
+        const newPath = location.pathname.replace(`/${lang}`, `/${type}`);
+        navigate(newPath, { replace: true });
+      }
+      setDrawerOpen(false);
+      setOpen(false);
+      i18n.changeLanguage(type);
+    },
+    [i18n, pathname, navigate, setDrawerOpen]
+  );
 
-  const handleToggle = () => {
+  const handleToggle = useCallback(() => {
     setOpen((prevOpen) => !prevOpen);
-  };
-
-  const handleClose = (event: Event) => {
+  }, []);
+  const handleClose = useCallback((event: Event) => {
     if (
       anchorRef.current &&
       anchorRef.current.contains(event.target as HTMLElement)
@@ -205,10 +222,10 @@ export const LanguageSwitcher: React.FC<{
       return;
 
     setOpen(false);
-  };
+  }, []);
 
   return (
-    <React.Fragment>
+    <>
       <ButtonGroup ref={anchorRef} aria-label="Button group with a nested menu">
         <Button
           aria-controls={open ? "split-button-menu" : undefined}
@@ -258,6 +275,6 @@ export const LanguageSwitcher: React.FC<{
           </Grow>
         )}
       </Popper>
-    </React.Fragment>
+    </>
   );
 };

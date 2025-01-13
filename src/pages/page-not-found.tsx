@@ -3,7 +3,7 @@ import { FC } from "react";
 import { useTranslation } from "react-i18next";
 
 export const PageNotFound: FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   return (
     <Stack
       sx={{
@@ -15,7 +15,7 @@ export const PageNotFound: FC = () => {
     >
       <Typography variant="h3">{t("common.pageNotExist")}</Typography>
       <Button
-        href="/"
+        href={`/${i18n.language}`}
         variant="contained"
         sx={{ background: "black", color: "white" }}
       >

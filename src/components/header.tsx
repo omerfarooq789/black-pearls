@@ -52,7 +52,7 @@ export const Header: FC = () => {
 
   const btnsList = useMemo(() => {
     const list = [
-      { text: "common.header.home", route: "/" },
+      { text: "common.header.home", route: `/${i18n.language}` },
       { text: "common.header.services", route: "/services" },
       { text: "common.header.projects", route: "/projects" },
       { text: "common.header.contact", route: "/contact" },
@@ -112,7 +112,7 @@ export const Header: FC = () => {
               alt="logo"
               width={233}
               height={80}
-              onClick={() => navigate("/")}
+              onClick={() => navigate(`/${i18n.language}`)}
               style={{ cursor: "pointer" }}
             />
           </Box>
