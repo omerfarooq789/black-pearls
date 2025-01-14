@@ -8,3 +8,34 @@ body {
   flex-direction: column;
   flex: 1;
 }
+
+/* General transition styles for smooth animations */
+.transition-opacity {
+  transition: opacity 1s ease-in-out;
+}
+
+.transition-transform {
+  transition:
+    transform 0.6s ease-out,
+    opacity 0.6s ease-out;
+}
+
+/* Fade-in effect */
+.animate-fadeIn {
+  opacity: 1;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+/* Slide-up effect */
+.animate-slideUp {
+  transform: translateY(20px); /* Start below the original position */
+  opacity: 0; /* Make the element invisible initially */
+}
+
+.animate-slideUp.opacity-100 {
+  transform: translateY(0); /* Move to the original position */
+  opacity: 1; /* Fade in */
+}

@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { ImageURL } from "../../models";
+import AnimatedSection from "../animation";
 
 const aboutSectionData: {
   title: string;
@@ -41,56 +42,58 @@ export const AboutSection: React.FC = () => {
     <Container sx={{ py: 10 }}>
       <Grid container rowGap={5}>
         {aboutSectionData.map((item, index) => (
-          <Grid
-            container
-            spacing={4}
-            key={index}
-            direction={index / 2 == 0 ? "row" : "row-reverse"}
-            alignItems="center"
-          >
-            <Grid item xs={12} md={6}>
-              <Typography
-                variant="h3"
-                gutterBottom
-                sx={{
-                  ...(index / 2 == 0
-                    ? {
-                        pr: { xs: 0, md: 12 },
-                      }
-                    : {
-                        pl: { xs: 0, md: 12 },
-                      }),
-                }}
-              >
-                {t(item.title)}
-              </Typography>
-              <Typography
-                variant="body1"
-                color="text.secondary"
-                sx={{
-                  ...(index / 2 == 0
-                    ? {
-                        pr: { xs: 0, md: 12 },
-                      }
-                    : {
-                        pl: { xs: 0, md: 12 },
-                      }),
-                }}
-              >
-                {t(item.description)}
-              </Typography>
+          <AnimatedSection key={index} animationClass="animate-fadeIn">
+            <Grid
+              container
+              spacing={4}
+              key={index}
+              direction={index / 2 == 0 ? "row" : "row-reverse"}
+              alignItems="center"
+            >
+              <Grid item xs={12} md={6}>
+                <Typography
+                  variant="h3"
+                  gutterBottom
+                  sx={{
+                    ...(index / 2 == 0
+                      ? {
+                          pr: { xs: 0, md: 12 },
+                        }
+                      : {
+                          pl: { xs: 0, md: 12 },
+                        }),
+                  }}
+                >
+                  {t(item.title)}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  color="text.secondary"
+                  sx={{
+                    ...(index / 2 == 0
+                      ? {
+                          pr: { xs: 0, md: 12 },
+                        }
+                      : {
+                          pl: { xs: 0, md: 12 },
+                        }),
+                  }}
+                >
+                  {t(item.description)}
+                </Typography>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Box
+                  component="img"
+                  src={item.imageUrl.large}
+                  srcSet={`${item.imageUrl.small} 400w,${item.imageUrl.medium} 800w,${item.imageUrl.large} 1600w`}
+                  sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
+                  alt={t(item.title)}
+                  sx={{ width: "100%", height: "auto", borderRadius: 2 }}
+                />
+              </Grid>
             </Grid>
-            <Grid item xs={12} md={6}>
-              <Box
-                component="img"
-                src={item.imageUrl.large}
-                srcSet={`${item.imageUrl.small} 400w,${item.imageUrl.medium} 800w,${item.imageUrl.large} 1600w`}
-                sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
-                alt={t(item.title)}
-                sx={{ width: "100%", height: "auto", borderRadius: 2 }}
-              />
-            </Grid>
-          </Grid>
+          </AnimatedSection>
         ))}
       </Grid>
     </Container>

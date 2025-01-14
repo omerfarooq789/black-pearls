@@ -8,16 +8,29 @@ import {
   ReviewSection,
   ContactUsSection,
 } from "../components";
+import AnimatedSection from "../components/animation";
 
 const Home: FC = () => {
   return (
     <Box className="flex-1">
-      <ImageBanner />
-      <AboutSection />
-      <ServicesSection />
-      <ProjectsSection />
-      <ReviewSection />
-      <ContactUsSection />
+      <AnimatedSection animationClass="animate-fadeIn">
+        <ImageBanner />
+      </AnimatedSection>
+      <AnimatedSection animationClass="animate-fadeIn">
+        <AboutSection />
+      </AnimatedSection>
+      <AnimatedSection animationClass="animate-fadeIn">
+        <ServicesSection />
+      </AnimatedSection>
+      <AnimatedSection animationClass="animate-fadeIn">
+        <ProjectsSection />
+      </AnimatedSection>
+      <AnimatedSection animationClass="animate-fadeIn">
+        <ReviewSection />
+      </AnimatedSection>
+      <AnimatedSection animationClass="animate-fadeIn">
+        <ContactUsSection />
+      </AnimatedSection>
     </Box>
   );
 };

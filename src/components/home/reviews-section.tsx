@@ -18,6 +18,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import StarIcon from "@mui/icons-material/Star";
 import { useTranslation } from "react-i18next";
+import AnimatedSection from "../animation";
 
 const reviewSectionData: {
   reviewer: string;
@@ -103,77 +104,83 @@ export const ReviewSection: FC = () => {
           >
             {reviewSectionData.map((item, index) => (
               <SwiperSlide key={index}>
-                <Box
-                  className="flex-1"
-                  justifyContent="center"
-                  py={8}
-                  mb={5}
-                  px={2}
-                  rowGap={2}
-                  sx={{
-                    height: isMdScreen ? "fit-content" : "350px",
-                    textAlign: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <Card
+                <AnimatedSection animationClass="animate-fadeIn">
+                  <Box
                     className="flex-1"
+                    justifyContent="center"
+                    py={8}
+                    mb={5}
+                    px={2}
+                    rowGap={2}
                     sx={{
-                      cursor: "pointer",
-                      justifyContent: "center",
-                      width: isSmallScreen ? "100%" : "80%",
+                      height: isMdScreen ? "fit-content" : "350px",
                       textAlign: "center",
-                      borderRadius: 3,
-                      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-                      px: { xs: 1, md: 3 },
-                      py: 3,
+                      alignItems: "center",
                     }}
                   >
-                    <Avatar
-                      src={item.imageUrl}
-                      alt="Marissa"
-                      sx={{ width: 80, height: 80, margin: "0 auto", mb: 2 }}
-                    />
-                    <Box
-                      sx={{ display: "flex", justifyContent: "center", mb: 1 }}
-                    >
-                      {[...Array(5)].map((_, index) => (
-                        <StarIcon key={index} sx={{ color: "#FFB400" }} />
-                      ))}
-                    </Box>
-                    <CardContent
+                    <Card
+                      className="flex-1"
                       sx={{
-                        alignItems: "center",
-                        display: "flex",
-
-                        flexDirection: "column",
-                        rowGap: 1,
+                        cursor: "pointer",
+                        justifyContent: "center",
+                        width: isSmallScreen ? "100%" : "80%",
+                        textAlign: "center",
+                        borderRadius: 3,
+                        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+                        px: { xs: 1, md: 3 },
+                        py: 3,
                       }}
                     >
-                      <Typography
-                        variant="body1"
-                        sx={{ fontStyle: "italic", color: "#555", mb: 2 }}
-                      >
-                        <FormatQuoteIcon />
-                        {t(item.review)}
-                        <FormatQuoteIcon />
-                      </Typography>
-                      <Divider
-                        sx={{
-                          width: "100px",
-                          borderWidth: "thin",
-                          borderColor: "coral",
-                        }}
+                      <Avatar
+                        src={item.imageUrl}
+                        alt="Marissa"
+                        sx={{ width: 80, height: 80, margin: "0 auto", mb: 2 }}
                       />
-                      <Typography
-                        variant="subtitle2"
-                        sx={{ fontWeight: "bold" }}
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "center",
+                          mb: 1,
+                        }}
                       >
-                        {`- ${t(item.reviewer)}`}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Box>
+                        {[...Array(5)].map((_, index) => (
+                          <StarIcon key={index} sx={{ color: "#FFB400" }} />
+                        ))}
+                      </Box>
+                      <CardContent
+                        sx={{
+                          alignItems: "center",
+                          display: "flex",
+
+                          flexDirection: "column",
+                          rowGap: 1,
+                        }}
+                      >
+                        <Typography
+                          variant="body1"
+                          sx={{ fontStyle: "italic", color: "#555", mb: 2 }}
+                        >
+                          <FormatQuoteIcon />
+                          {t(item.review)}
+                          <FormatQuoteIcon />
+                        </Typography>
+                        <Divider
+                          sx={{
+                            width: "100px",
+                            borderWidth: "thin",
+                            borderColor: "coral",
+                          }}
+                        />
+                        <Typography
+                          variant="subtitle2"
+                          sx={{ fontWeight: "bold" }}
+                        >
+                          {`- ${t(item.reviewer)}`}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </Box>
+                </AnimatedSection>
               </SwiperSlide>
             ))}
           </Swiper>

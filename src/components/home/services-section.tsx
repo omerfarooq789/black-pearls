@@ -15,6 +15,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 import { servicesSectionData } from "../../assets/data";
 import { useTranslation } from "react-i18next";
 import { useCustomNavigate } from "../../hooks";
+import AnimatedSection from "../animation";
 
 export const ServicesSection: React.FC = () => {
   const { t } = useTranslation();
@@ -39,64 +40,66 @@ export const ServicesSection: React.FC = () => {
       <Typography variant="body1" gutterBottom align="center">
         {t("pages.home.servicesSection.description")}
       </Typography>
-      <div dir="ltr">
-        <Swiper
-          modules={[Pagination, Autoplay]}
-          spaceBetween={30}
-          slidesPerView={isSmallScreen ? 1 : isMdScreen ? 2 : 4}
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 5000 }}
-          loop
-        >
-          <Box sx={{ px: 5 }}>
-            {servicesSectionData.data.map((item, index) => (
-              <SwiperSlide key={index}>
-                <Paper
-                  elevation={0}
-                  sx={{
-                    overflow: "hidden",
-                    borderRadius: 2,
-                    mt: 2,
-                    cursor: "pointer",
-                  }}
-                >
-                  <Box
-                    className="flex-1"
-                    alignItems="center"
-                    justifyContent="center"
-                    mb={5}
-                    rowGap={2}
+      <AnimatedSection animationClass="animate-fadeIn">
+        <div dir="ltr">
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={isSmallScreen ? 1 : isMdScreen ? 2 : 4}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 5000 }}
+            loop
+          >
+            <Box sx={{ px: 5 }}>
+              {servicesSectionData.data.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <Paper
+                    elevation={0}
                     sx={{
-                      textAlign: "center",
-                      color: (theme) => theme.palette.common.white,
-                      backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(${!isMdScreen ? item.imageUrl.large : !isSmallScreen ? item.imageUrl.medium : item.imageUrl.small})`,
-                      backgroundPositionY: "center",
-                      backgroundSize: "cover",
-                      borderRadius: 4,
-                      height: "350px",
-                      p: 2,
+                      overflow: "hidden",
+                      borderRadius: 2,
+                      mt: 2,
+                      cursor: "pointer",
                     }}
                   >
-                    <Typography variant="h4" fontWeight="bold" gutterBottom>
-                      {t(`common.servicesList.${item.type}.title`)}
-                    </Typography>
-                    <Typography variant="body1">
-                      {t(`common.servicesList.${item.type}.description`)}
-                    </Typography>
-                    <Button
-                      variant="outlined"
-                      onClick={() => navigate(`/services/${item.type}`)}
-                      sx={{ width: "fit-content" }}
+                    <Box
+                      className="flex-1"
+                      alignItems="center"
+                      justifyContent="center"
+                      mb={5}
+                      rowGap={2}
+                      sx={{
+                        textAlign: "center",
+                        color: (theme) => theme.palette.common.white,
+                        backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(${!isMdScreen ? item.imageUrl.large : !isSmallScreen ? item.imageUrl.medium : item.imageUrl.small})`,
+                        backgroundPositionY: "center",
+                        backgroundSize: "cover",
+                        borderRadius: 4,
+                        height: "350px",
+                        p: 2,
+                      }}
                     >
-                      {t("pages.home.servicesSection.seeMoreBtn")}
-                    </Button>
-                  </Box>
-                </Paper>
-              </SwiperSlide>
-            ))}
-          </Box>
-        </Swiper>
-      </div>
+                      <Typography variant="h4" fontWeight="bold" gutterBottom>
+                        {t(`common.servicesList.${item.type}.title`)}
+                      </Typography>
+                      <Typography variant="body1">
+                        {t(`common.servicesList.${item.type}.description`)}
+                      </Typography>
+                      <Button
+                        variant="outlined"
+                        onClick={() => navigate(`/services/${item.type}`)}
+                        sx={{ width: "fit-content" }}
+                      >
+                        {t("pages.home.servicesSection.seeMoreBtn")}
+                      </Button>
+                    </Box>
+                  </Paper>
+                </SwiperSlide>
+              ))}
+            </Box>
+          </Swiper>
+        </div>
+      </AnimatedSection>
     </Box>
   );
 };

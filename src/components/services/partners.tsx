@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import AnimatedSection from "../animation";
 
 const partnersList: {
   imgUrl: string;
@@ -50,7 +51,9 @@ export const ServicesPartners: FC = () => {
         <Grid container spacing={3} justifyContent="center">
           {partnersList.map((partner, index) => (
             <Grid item xs={6} sm={4} md={3} key={index}>
-              <img src={partner.imgUrl} alt="partner" width="100%" />
+              <AnimatedSection animationClass="animate-fadeIn">
+                <img src={partner.imgUrl} alt="partner" width="100%" />
+              </AnimatedSection>
             </Grid>
           ))}
         </Grid>

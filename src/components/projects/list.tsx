@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { ImageURL } from "../../models";
+import AnimatedSection from "../animation";
 
 const projects: {
   title: string;
@@ -77,68 +78,70 @@ export const ProjectsList: React.FC = () => {
       </Typography>
       <Grid container spacing={4} justifyContent="center" sx={{ padding: 4 }}>
         {projects.map((project, index) => (
-          <Grid item xs={12} key={index}>
-            <Card sx={{ borderRadius: 4, boxShadow: 0 }}>
-              <Grid container spacing={{ xs: 1, md: 2 }}>
-                <Grid item xs={12} md={6}>
-                  <CardMedia
-                    component="img"
-                    height="320"
-                    src={project.imageUrl[0].large}
-                    srcSet={`${project.imageUrl[0].small} 400w,${project.imageUrl[0].medium} 800w,${project.imageUrl[0].large} 1600w`}
-                    sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
-                    alt={`${t(project.title)} Image 1`}
-                    sx={{ borderRadius: "8px" }}
-                  />
+          <AnimatedSection key={index} animationClass="animate-fadeIn">
+            <Grid item xs={12} key={index}>
+              <Card sx={{ borderRadius: 4, boxShadow: 0 }}>
+                <Grid container spacing={{ xs: 1, md: 2 }}>
+                  <Grid item xs={12} md={6}>
+                    <CardMedia
+                      component="img"
+                      height="320"
+                      src={project.imageUrl[0].large}
+                      srcSet={`${project.imageUrl[0].small} 400w,${project.imageUrl[0].medium} 800w,${project.imageUrl[0].large} 1600w`}
+                      sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
+                      alt={`${t(project.title)} Image 1`}
+                      sx={{ borderRadius: "8px" }}
+                    />
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <CardMedia
+                      component="img"
+                      height="320"
+                      src={project.imageUrl[1].large}
+                      srcSet={`${project.imageUrl[1].small} 400w,${project.imageUrl[1].medium} 800w,${project.imageUrl[1].large} 1600w`}
+                      sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
+                      alt={`${t(project.title)} Image 2`}
+                      sx={{ borderRadius: "8px" }}
+                    />
+                  </Grid>
                 </Grid>
-                <Grid item xs={12} md={6}>
-                  <CardMedia
-                    component="img"
-                    height="320"
-                    src={project.imageUrl[1].large}
-                    srcSet={`${project.imageUrl[1].small} 400w,${project.imageUrl[1].medium} 800w,${project.imageUrl[1].large} 1600w`}
-                    sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
-                    alt={`${t(project.title)} Image 2`}
-                    sx={{ borderRadius: "8px" }}
-                  />
-                </Grid>
-              </Grid>
-              <CardContent
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <div>
-                  <Typography
-                    variant="h5"
-                    component="div"
-                    gutterBottom
-                    fontWeight="bold"
-                  >
-                    {t(project.title)}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {t(project.description)}
-                  </Typography>
-                </div>
-                <Button
-                  variant="outlined"
-                  size="large"
+                <CardContent
                   sx={{
-                    borderRadius: "50px",
-                    textTransform: "none",
-                    borderColor: "black",
-                    color: "black",
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    alignItems: "center",
                   }}
                 >
-                  {t(project.buttonText)}
-                </Button>
-              </CardContent>
-            </Card>
-          </Grid>
+                  <div>
+                    <Typography
+                      variant="h5"
+                      component="div"
+                      gutterBottom
+                      fontWeight="bold"
+                    >
+                      {t(project.title)}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {t(project.description)}
+                    </Typography>
+                  </div>
+                  <Button
+                    variant="outlined"
+                    size="large"
+                    sx={{
+                      borderRadius: "50px",
+                      textTransform: "none",
+                      borderColor: "black",
+                      color: "black",
+                    }}
+                  >
+                    {t(project.buttonText)}
+                  </Button>
+                </CardContent>
+              </Card>
+            </Grid>
+          </AnimatedSection>
         ))}
       </Grid>
     </Container>

@@ -5,13 +5,20 @@ import {
   ContactUsHeading,
   ContactUsDetails,
 } from "../components";
+import AnimatedSection from "../components/animation";
 
 const ContactUs: FC = () => {
   return (
     <Box>
-      <ContactUsHeading />
-      <ContactUsDetails />
-      <ContactLocation />
+      <AnimatedSection animationClass="animate-fadeIn">
+        <ContactUsHeading />
+      </AnimatedSection>
+      <AnimatedSection animationClass="animate-fadeIn">
+        <ContactUsDetails />
+      </AnimatedSection>
+      <AnimatedSection animationClass="animate-fadeIn">
+        <ContactLocation />
+      </AnimatedSection>
     </Box>
   );
 };

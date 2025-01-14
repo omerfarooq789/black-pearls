@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Container, Grid, Typography, Paper } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { ImageURL } from "../../models";
+import AnimatedSection from "../animation";
 
 const projectsSectionData: {
   title: string;
@@ -72,29 +73,31 @@ export const ProjectsSection: React.FC = () => {
       <Grid container spacing={6} px={{ xs: 2, md: 8 }} justifyContent="center">
         {projectsSectionData.map((item, index) => (
           <Grid item xs={12} md={6} key={index}>
-            <Paper elevation={0} sx={{ overflow: "hidden" }}>
-              <Box
-                component="img"
-                src={item.imageUrl.large}
-                srcSet={`${item.imageUrl.small} 400w,${item.imageUrl.medium} 800w,${item.imageUrl.large} 1600w`}
-                sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
-                alt={item.title}
-                sx={{
-                  width: "100%",
-                  height: 400,
-                  objectFit: "cover",
-                  borderRadius: 3,
-                }}
-              />
-              <Box className="flex-1">
-                <Typography variant="h6" gutterBottom fontWeight="bold">
-                  {t(item.title)}
-                </Typography>
-                <Typography color="text.secondary">
-                  {t(item.description)}
-                </Typography>
-              </Box>
-            </Paper>
+            <AnimatedSection animationClass="animate-fadeIn">
+              <Paper elevation={0} sx={{ overflow: "hidden" }}>
+                <Box
+                  component="img"
+                  src={item.imageUrl.large}
+                  srcSet={`${item.imageUrl.small} 400w,${item.imageUrl.medium} 800w,${item.imageUrl.large} 1600w`}
+                  sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
+                  alt={item.title}
+                  sx={{
+                    width: "100%",
+                    height: 400,
+                    objectFit: "cover",
+                    borderRadius: 3,
+                  }}
+                />
+                <Box className="flex-1">
+                  <Typography variant="h6" gutterBottom fontWeight="bold">
+                    {t(item.title)}
+                  </Typography>
+                  <Typography color="text.secondary">
+                    {t(item.description)}
+                  </Typography>
+                </Box>
+              </Paper>
+            </AnimatedSection>
           </Grid>
         ))}
       </Grid>
