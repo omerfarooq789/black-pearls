@@ -12,6 +12,7 @@ import {
 import { Footer, Header, Loader } from "../components";
 
 import { useTranslation } from "react-i18next";
+import { usePageTracking } from "../hooks";
 
 const Home = lazy(() => import("../pages/home"));
 const Projects = lazy(() => import("../pages/projects"));
@@ -29,6 +30,8 @@ const SuspenseLayout = () => (
 const AllRoutes: FC = () => {
   const { pathname } = useLocation();
   const { i18n } = useTranslation();
+  usePageTracking();
+
   useEffect(() => {
     const currentLang = pathname.startsWith("/en") ? "en" : "ar";
     if (pathname !== "/" && currentLang !== i18n.language) {
