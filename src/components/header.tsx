@@ -16,6 +16,7 @@ import {
   Theme,
   Menu,
   MenuItem,
+  ListItemIcon,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useLocation } from "react-router-dom";
@@ -46,6 +47,8 @@ export const Header: FC = () => {
 
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
+
   const isSmallScreen = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("md")
   );
@@ -53,20 +56,29 @@ export const Header: FC = () => {
   const btnsList = useMemo(() => {
     const list = [
       { text: "common.header.home", route: `/${i18n.language}` },
-      { text: "common.header.services", route: "/services" },
+      {
+        text: "common.header.services",
+        route: "/services",
+        subBtns: servicesSubMenu,
+      },
       { text: "common.header.projects", route: "/projects" },
       { text: "common.header.contact", route: "/contact" },
     ];
     return i18n.language === "ar" && !isSmallScreen ? list.reverse() : list;
   }, [i18n.language, isSmallScreen]);
 
+  const handleSubMenuToggle = useCallback((menuKey: string) => {
+    setOpenSubMenu((prev) => (prev === menuKey ? null : menuKey));
+  }, []);
+
   const handleNavigate = useCallback(
     (route: string) => {
       navigate(route);
       setDrawerOpen(false);
+      handleSubMenuToggle("");
       setAnchorEl(null);
     },
-    [navigate]
+    [handleSubMenuToggle, navigate]
   );
 
   const handleMenuOpen = useCallback((event: React.MouseEvent<HTMLElement>) => {
@@ -124,7 +136,7 @@ export const Header: FC = () => {
               flexDirection={i18n.language === "ar" ? "row-reverse" : "row"}
             >
               {btnsList.map((btn, index) =>
-                btn.text === "common.header.services" ? (
+                btn.subBtns?.length ? (
                   <Box key={index} sx={{ position: "relative" }}>
                     <Button
                       sx={{
@@ -165,7 +177,7 @@ export const Header: FC = () => {
                         horizontal: "center",
                       }}
                     >
-                      {servicesSubMenu.map((item, idx) => (
+                      {btn.subBtns.map((item, idx) => (
                         <MenuItem
                           key={idx}
                           onClick={() => {
@@ -194,19 +206,14 @@ export const Header: FC = () => {
                       borderRadius: 1,
                       px: "16px !important",
                       py: "6px !important",
-                      ...(pathname === `/${i18n.language}${btn.route}` && {
+                      ...((pathname === `/${i18n.language}${btn.route}` ||
+                        (pathname === btn.route &&
+                          btn.text === "common.header.home")) && {
                         fontWeight: 600,
                         borderBottomLeftRadius: 0,
                         borderBottomRightRadius: 0,
                         borderBottom: "1px solid",
                       }),
-                      ...(pathname === btn.route &&
-                        btn.text === "common.header.home" && {
-                          fontWeight: 600,
-                          borderBottomLeftRadius: 0,
-                          borderBottomRightRadius: 0,
-                          borderBottom: "1px solid",
-                        }),
                     }}
                     color="inherit"
                     onClick={() => navigate(btn.route)}
@@ -223,38 +230,113 @@ export const Header: FC = () => {
       <Drawer
         anchor="left"
         open={isDrawerOpen}
-        onClose={() => setDrawerOpen(false)}
+        onClose={() => {
+          setDrawerOpen(false);
+          handleSubMenuToggle("");
+        }}
         sx={{
           "& .MuiDrawer-paper": {
-            width: "100%",
             height: "100%",
-            backgroundColor: "background.default",
             color: "text.primary",
+            padding: "1rem",
           },
         }}
       >
-        <Container sx={{ height: "100%" }}>
+        <Container sx={{ height: "100%", p: 2 }}>
           <List
             sx={{
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: "flex-start",
+              gap: 1,
               height: "100%",
             }}
           >
             {btnsList.map((btn, index) => (
-              <ListItem key={index} disablePadding>
+              <ListItem
+                key={index}
+                disablePadding
+                sx={{
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  width: "100%",
+                }}
+              >
                 <ListItemButton
-                  onClick={() => handleNavigate(btn.route)}
-                  sx={{ justifyContent: "center", textAlign: "center" }}
+                  onClick={() => {
+                    if (btn.subBtns?.length) {
+                      handleSubMenuToggle(btn.text);
+                    } else {
+                      handleNavigate(btn.route);
+                      setDrawerOpen(false);
+                      handleSubMenuToggle("");
+                    }
+                  }}
+                  sx={{
+                    justifyContent: "flex-start",
+                    textAlign: "left",
+                    width: "fit-content",
+                    columnGap: 2,
+                    px: 2,
+                    py: 1.5,
+                    borderRadius: 2,
+                  }}
                 >
                   <ListItemText primary={t(btn.text)} />
+                  {btn.subBtns?.length && (
+                    <ListItemIcon>
+                      {openSubMenu === btn.text ? (
+                        <ArrowDropUpIcon />
+                      ) : (
+                        <ArrowDropDownIcon />
+                      )}
+                    </ListItemIcon>
+                  )}
                 </ListItemButton>
+
+                {btn.subBtns?.length && openSubMenu === btn.text && (
+                  <List
+                    component="div"
+                    disablePadding
+                    sx={{
+                      pl: 3,
+                      width: "100%",
+                      mt: 0.5,
+                      borderLeft: "2px solid rgba(0, 0, 0, 0.2)",
+                    }}
+                  >
+                    {btn.subBtns.map((subBtn, subIndex) => (
+                      <ListItem key={subIndex} disablePadding>
+                        <ListItemButton
+                          onClick={() => {
+                            handleNavigate(subBtn.route);
+                            setDrawerOpen(false);
+                            handleSubMenuToggle("");
+                          }}
+                          sx={{
+                            justifyContent: "flex-start",
+                            textAlign: "left",
+                            width: "100%",
+                            px: 2,
+                            py: 1,
+                          }}
+                        >
+                          <ListItemText primary={t(subBtn.text)} />
+                        </ListItemButton>
+                      </ListItem>
+                    ))}
+                  </List>
+                )}
               </ListItem>
             ))}
+
             <Box
-              sx={{ position: "absolute", bottom: "1rem", textAlign: "center" }}
+              sx={{
+                position: "absolute",
+                bottom: "1rem",
+                textAlign: "center",
+              }}
             >
               <LanguageSwitcher setDrawerOpen={setDrawerOpen} />
             </Box>
