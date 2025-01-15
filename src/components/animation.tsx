@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useInView } from "react-intersection-observer";
-import { Box } from "@mui/material";
+import { Box, Theme, useMediaQuery } from "@mui/material";
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
@@ -11,9 +11,12 @@ const AnimatedSection: FC<AnimatedSectionProps> = ({
   children,
   animationClass,
 }) => {
+  const isSmallScreen = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("md")
+  );
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.3,
+    threshold: isSmallScreen ? 0.2 : 0.3,
   });
 
   return (
