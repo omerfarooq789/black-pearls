@@ -76,11 +76,13 @@ export const ProjectsList: React.FC = () => {
       <Typography variant="body1" gutterBottom align="center" pb={3}>
         {t("pages.projects.description")}
       </Typography>
-      <Grid container spacing={4} justifyContent="center" sx={{ padding: 4 }}>
+      <Grid container justifyContent="center">
         {projects.map((project, index) => (
           <AnimatedSection key={index} animationClass="animate-fadeIn">
             <Grid item xs={12} key={index}>
-              <Card sx={{ borderRadius: 4, boxShadow: 0 }}>
+              <Card
+                sx={{ borderRadius: 2, boxShadow: { xs: 1, md: 0 }, mb: 2 }}
+              >
                 <Grid container spacing={{ xs: 1, md: 2 }}>
                   <Grid item xs={12} md={6}>
                     <CardMedia
@@ -108,8 +110,9 @@ export const ProjectsList: React.FC = () => {
                 <CardContent
                   sx={{
                     display: "flex",
-                    flexDirection: "row",
+                    flexDirection: { xs: "column", sm: "row" },
                     justifyContent: "space-between",
+                    rowGap: 2,
                     alignItems: "center",
                   }}
                 >
